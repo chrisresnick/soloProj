@@ -19,3 +19,7 @@ export async function fetch(url, options = {}) {
     if (res.status >= 400) throw res;
     return res;
 }
+
+export function restoreCSRF() {
+    return fetch('/api/csrf/restore');
+  }
