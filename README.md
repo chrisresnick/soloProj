@@ -47,6 +47,20 @@
   - Front End
     - /listings/#id
       - Display a listing
-    -
+    - /shop/#id
+      - Display a shops page and all of their listings
+    - /
+      - Home Page
+    - /sell
+      - Request Seller permison
+      
   - Back End
+    - /api/listings/id
+      - Fetch a listing from the database and return JSON
+    - /api/shop/id
+      - Fetch shop text and all listings from database and return JSON
+   - /api/shopingCart/id POST
+      - Add item to user shoping cart
+  - /api/shopingCart/id DELETE
+    - delete an item from shoping cart
   
