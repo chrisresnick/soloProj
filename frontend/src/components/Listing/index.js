@@ -33,7 +33,7 @@ const Listing = () => {
             <div className="info">
                 <h1>{listing.title}</h1>
                 <p>{listing.description}</p>
-                <p>${listing.priceCents/100}</p>
+                <p>${(listing.priceCents/100).toFixed(2)}</p>
             </div>
         </div>
        </>

@@ -1,6 +1,6 @@
 .main-img {
-    width: 33%;
-    height: auto
+    max-width: 90%;
+    max-height: 100%;
 }
 
 .imgHolder {
@@ -13,10 +13,11 @@
 }
 
 .info {
-    max-width: 50%
+    width: 33%
 }
 .imgs {
     display: flex;
+    max-height: 90vh;
 }
 
 .disp {
