@@ -59,8 +59,8 @@
       - Fetch a listing from the database and return JSON
     - /api/shop/id
       - Fetch shop text and all listings from database and return JSON
-   - /api/shopingCart/id POST
-      - Add item to user shoping cart
-  - /api/shopingCart/id DELETE
-    - delete an item from shoping cart
+     - /api/shopingCart/id POST
+        - Add item to user shoping cart
+    - /api/shopingCart/id DELETE
+      - delete an item from shoping cart
   
