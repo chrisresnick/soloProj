@@ -9,6 +9,11 @@
   - Listings
   - Reviews
   
-  #Possible Extras
+  # Possible Extras
   - Map API
+    - Show Listings on a Map
   - Ability to list trips
+  
+  # Data Base schema 
+  
+  # Routes 
