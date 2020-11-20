@@ -38,8 +38,8 @@
     
  - Shopping Cart
   - ID
-  - User - Integer, Foreign Key
-  - Item - Integer, Foreign Key
+    - User - Integer, Foreign Key
+    - Item - Integer, Foreign Key
     
     
     
