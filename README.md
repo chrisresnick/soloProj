@@ -1,6 +1,6 @@
 # soloProj
   
-  #Concept
+  # Concept
   Etsy clone but for climbing guides/outdoor trips.
   
   # MVPS
