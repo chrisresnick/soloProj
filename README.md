@@ -37,7 +37,7 @@
     - FromUser - Integer, Foreign Key
     
  - Shopping Cart
-  - ID
+    - ID
     - User - Integer, Foreign Key
     - Item - Integer, Foreign Key
     
