@@ -26,7 +26,8 @@
     - ID 
     - Seller - Integer, Foreign Key
     - Description - text
-    - Picture Link - text    
+    - Picture Link - text
+    - Price
   
  - Reviews
     - ID
@@ -47,6 +48,7 @@
   - Front End
     - /listings/#id
       - Display a listing
+      - Show calender for booking
     - /shop/#id
       - Display a shops page and all of their listings
     - /
