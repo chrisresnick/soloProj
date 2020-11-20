@@ -24,8 +24,8 @@ module.exports = {
       photo: {
         type: Sequelize.TEXT
       },
-      price: {
-        type: Sequelize.FLOAT,
+      priceCents: {
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       createdAt: {
