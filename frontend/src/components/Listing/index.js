@@ -17,7 +17,7 @@ const Listing = () => {
             console.log(res);
             setListing(res.data);
             setLoading(false);
-            setImgs([res.data.photo]);
+            setImgs([res.data.photo, ...res.data.ExtraPhotos]);
         })()
     }, [params])
 
