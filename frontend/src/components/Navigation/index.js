@@ -5,18 +5,19 @@ import ProfileButton from "./ProfileButton";
 
 const Navigation = ({isLoaded}) => {
     const user = useSelector(state => state.session.user);
-    const links = user ? (<ProfileButton user={user} />) : (
+    const links = user ? (<li><ProfileButton user={user} /></li>) : (
         <>
-          <NavLink to="/login">Log In</NavLink>
-          <NavLink to="/signup">Sign Up</NavLink>
+          <li><NavLink to="/login">Log In</NavLink></li>
+          <li><NavLink to="/signup">Sign Up</NavLink></li>
         </>
       );
     return (
         <ul>
             <li>
                 <NavLink to="/">Home</NavLink>
-                {isLoaded && links}
             </li>
+                {isLoaded && links}
+
         </ul>
     );
 }

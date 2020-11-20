@@ -1,1 +1,23 @@
 /* TODO Add site wide styles */
+* {
+    margin: 0px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+
+}
+
+ul li {
+    display: inline;
+    margin: 3px;
+}
+
+.dropdown {
+    width: fit-content;
+    outline: 1px solid black;
+    display:flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
