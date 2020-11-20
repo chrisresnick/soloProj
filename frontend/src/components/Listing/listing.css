@@ -1,0 +1,27 @@
+.main-img {
+    width: 33%;
+    height: auto
+}
+
+.imgHolder {
+    width: 10%;
+}
+
+.imgHolder img {
+    max-width: 100%;
+    height: auto;
+}
+
+.info {
+    max-width: 50%
+}
+.imgs {
+    display: flex;
+}
+
+.disp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+}
