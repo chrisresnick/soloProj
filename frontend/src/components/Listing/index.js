@@ -26,9 +26,16 @@ const Listing = () => {
         <div className="disp">
             <div className="imgs">
                 <div className ="imgHolder">
+                    <i class="fas fa-chevron-up"></i>
                     {imgs.map((imig, idx) => <img key={idx} onClick={() => setSelectedImg(idx)} src={imig} alt={listing.title}/>)}
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <img className="main-img" src={imgs[selectedImg]} alt={listing.title}/>
+                <div class="main-img-holder">
+                    <i class="fas fa-chevron-left"></i>
+                    <img className="main-img" src={imgs[selectedImg]} alt={listing.title}/>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
             </div>
             <div className="info">
                 <h1>{listing.title}</h1>
