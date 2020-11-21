@@ -2,6 +2,8 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import { fetch } from "../../store/csrf"
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import "./listing.css";
 
 const Listing = () => {
@@ -9,6 +11,7 @@ const Listing = () => {
     const [listing, setListing] = useState({});
     const [loading, setLoading] = useState(true);
     const [imgs, setImgs] = useState([]);
+    const [date, setDate] = useState(new Date());
     const [selectedImg, setSelectedImg] = useState(0);
 
     useEffect(()=> {
@@ -49,6 +52,8 @@ const Listing = () => {
                 <h1>{listing.title}</h1>
                 <p>{listing.description}</p>
                 <p>${(listing.priceCents/100).toFixed(2)}</p>
+                <Calendar onChange={setDate} value={date}/>
+                <button>Add Trip to Cart</button>
             </div>
         </div>
        </>
