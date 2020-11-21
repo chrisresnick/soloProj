@@ -26,8 +26,13 @@
     - ID 
     - Seller - Integer, Foreign Key
     - Description - text
-    - Picture Link - text
+    - Photo - text
     - Price
+    
+  -ExtraImgs:
+    - ID
+    - Listing - Integer, Foreign Key,
+    - Photo URL - text
   
  - Reviews
     - ID
