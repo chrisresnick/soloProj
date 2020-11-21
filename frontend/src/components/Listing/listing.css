@@ -1,15 +1,15 @@
 i {
-    font-size: 5vh;
+    font-size: 5vmin;
 }
 
 .main-img {
-    max-width: 100%;
+    max-width: 90%;
     max-height: 100%;
 }
 
 .main-img-holder {
-    max-width: 90%;
-    max-height: 100%;
+    width: 90%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,9 +31,10 @@ i {
 .info {
     width: 33%
 }
+
 .imgs {
     display: flex;
-    max-height: 90vh;
+    height: 90vh;
     width: 66%;
 }
 
