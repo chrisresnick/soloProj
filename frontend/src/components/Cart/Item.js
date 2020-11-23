@@ -31,6 +31,10 @@ const Item = ({item}) => {
                     <input id="date" type="date" value={dateStr} onChange={e => setDate(new Date(e.target.value))}/>
                 </div>
                 <p>${(listing.priceCents/100).toFixed(2)} Each</p>
+                <div className="button-holder">
+                    <i className="fas fa-trash"></i>
+                    <i className="far fa-save"></i>
+                </div>
 
             </div>
         </div>
