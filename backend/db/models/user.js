@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     static associate(models) {
       User.hasMany(models.Listing, {foreignKey: "seller"});
+      User.hasMany(models.Cart, {foreignKey: "user"});
     }
   };
   User.init(
