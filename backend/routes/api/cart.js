@@ -18,8 +18,8 @@ router.post("/", asyncHadler( async (req, res) => {
 
 router.get("/:id(\\d+)", asyncHadler(async (req, res) => {
     const user = Number.parseInt(req.params.id);
-    const inCart = await Cart.findAll({where: {user}},
-        {include: {model: Listing, indlude: User}})
+    const inCart = await Cart.findAll({where: {user},
+        include: {model: Listing, include: User}})
     res.json(inCart);
 }))
 

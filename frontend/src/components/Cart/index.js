@@ -17,7 +17,7 @@ const Cart = () => {
             setCart(res.data);
         })()
         setCartIsRefreshed(true);
-        return () => setCartIsRefreshed(false);
+        // return () => setCartIsRefreshed(false);
     }, [cartIsRefreshed, id])
 
     // const html = !cartIsRefreshed ? (<h1>Loading Cart...</h1>) : (
