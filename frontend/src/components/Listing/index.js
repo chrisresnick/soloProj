@@ -13,6 +13,7 @@ const Listing = () => {
     const [imgs, setImgs] = useState([]);
     const [date, setDate] = useState(new Date());
     const [selectedImg, setSelectedImg] = useState(0);
+    const [participants, setParticipants] = useState(1);
 
     useEffect(()=> {
         (async () => {
@@ -30,6 +31,10 @@ const Listing = () => {
         if(newSelected >= imgs.length) newSelected  = 0;
         setSelectedImg(newSelected);
         console.log(selectedImg);
+    }
+
+    const addToCart = (e) => {
+
     }
 
     return !loading && (
@@ -54,7 +59,11 @@ const Listing = () => {
                 <p>${(listing.priceCents/100).toFixed(2)}</p>
                 <div class="form-holder">
                     <Calendar onChange={setDate} value={date}/>
-                    <button className="add-to-cart">Add Trip to Cart</button>
+                    <div className="guestsHolder">
+                        <label for="guests">Number of Participants</label>
+                        <input id="guests" type="number" value={participants} onChange={e => setParticipants(e.target.value)} />
+                    </div>
+                    <button className="add-to-cart" onClick={addToCart}>Add Trip to Cart</button>
                 </div>
             </div>
         </div>

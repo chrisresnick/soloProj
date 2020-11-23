@@ -30,6 +30,17 @@ i {
     border-radius: 25px;
 }
 
+
+.guests-holder {
+    width: 85%;
+}
+#guests {
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 25px;
+    margin: auto;
+}
+
 .imgHolder {
     width: 10%;
     display: flex;
