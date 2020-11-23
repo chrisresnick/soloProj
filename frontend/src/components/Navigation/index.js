@@ -7,7 +7,16 @@ import "./nav.css"
 
 const Navigation = ({isLoaded}) => {
     const user = useSelector(state => state.session.user);
-    const links = user ? (<li><ProfileButton user={user} /></li>) : (
+    const links = user ? (
+        <>
+        <li><ProfileButton user={user} /></li>
+        <li>
+            <NavLink to="/cart">
+                <i class="fas fa-shopping-cart"></i>
+            </NavLink>
+        </li>
+        </>
+    ) : (
         <>
           <li><NavLink to="/login">Log In</NavLink></li>
           <li><NavLink to="/signup">Sign Up</NavLink></li>
