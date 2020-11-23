@@ -23,4 +23,11 @@ router.get("/:id(\\d+)", asyncHadler(async (req, res) => {
     res.json(inCart);
 }))
 
+router.delete("/:id(\\d+)", asyncHadler(async (req, res) => {
+    const id = Number.parseInt(req.params.id);
+    const item = await Cart.findByPk(id);
+    await item.destroy();
+    res.json({deleted:id});
+}))
+
 module.exports = router;
