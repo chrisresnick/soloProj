@@ -21,6 +21,13 @@ const Cart = () => {
         // return () => setCartIsRefreshed(false);
     }, [cartIsRefreshed, id])
 
+    const delFromCart = async (listing) => {
+        const res = await fetch(`/api/cart/${listing}`, {
+            method: "DELETE",
+        });
+        setCart(cart.filter(item => item.id !== res.data.deleted));
+    }
+
     // const html = !cartIsRefreshed ? (<h1>Loading Cart...</h1>) : (
     //     <>
     //         {cart.map(item => <Item key={item.id} item={item} />)}
@@ -29,7 +36,7 @@ const Cart = () => {
 
     return  cartIsRefreshed ? (
         <>
-            {cart.map(item => <Item key={item.id} item={item} />)}
+            {cart.map(item => <Item key={item.id} item={item} delFromCart={delFromCart}/>)}
         </>
     ) : (
         <h1>Loading cart...</h1>

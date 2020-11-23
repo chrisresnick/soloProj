@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
+import {fetch} from "../../store/csrf";
 
 
-const Item = ({item}) => {
+const Item = ({item, delFromCart}) => {
     const listing = item.Listing;
     const seller = listing.User;
     const [date, setDate] = useState(new Date(item.date));
@@ -11,8 +12,15 @@ const Item = ({item}) => {
     const day = String((date.getDate())).padStart(2, 0);
     const dateStr = `${date.getFullYear()}-${month}-${day}`;
 
-    return (
+    const deleteItem = (e) => {
+        delFromCart(item.id);
+    }
 
+    const saveItem = (e) => {
+
+    }
+
+    return (
         <div className="horizontal-listing">
             <div className="photo-holder">
                 <img className="listing-photo" src={listing.photo} alt={listing.title}/>
@@ -25,15 +33,15 @@ const Item = ({item}) => {
                 </div>
                 <p>Sold by {seller.username}</p>
                 <div className="booking">
-                    <label htmlFor="guests">Number of Guests</label>
+                    <label htmlFor="guests">Number of Guests:</label>
                     <input id="num-guests" type="number" value={participants} onChange={e => setParticipants(e.target.value)}/>
                     <label htmlFor="date">On:</label>
                     <input id="date" type="date" value={dateStr} onChange={e => setDate(new Date(e.target.value))}/>
                 </div>
                 <p>${(listing.priceCents/100).toFixed(2)} Each</p>
                 <div className="button-holder">
-                    <i className="fas fa-trash"></i>
-                    <i className="far fa-save"></i>
+                    <i className="fas fa-trash" onClick={deleteItem}></i>
+                    <i className="far fa-save" onClick={saveItem}></i>
                 </div>
 
             </div>
