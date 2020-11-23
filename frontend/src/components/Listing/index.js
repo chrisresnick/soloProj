@@ -52,8 +52,10 @@ const Listing = () => {
                 <h1>{listing.title}</h1>
                 <p>{listing.description}</p>
                 <p>${(listing.priceCents/100).toFixed(2)}</p>
-                <Calendar onChange={setDate} value={date}/>
-                <button>Add Trip to Cart</button>
+                <div class="form-holder">
+                    <Calendar onChange={setDate} value={date}/>
+                    <button className="add-to-cart">Add Trip to Cart</button>
+                </div>
             </div>
         </div>
        </>

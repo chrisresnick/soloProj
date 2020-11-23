@@ -1,0 +1,41 @@
+.nav {
+    max-width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ li {
+    display: inline;
+    margin: 3px;
+}
+
+.right {
+    display: flex;
+}
+
+.dropdown {
+    width: fit-content;
+    outline: 1px solid black;
+    display:flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+.search {
+    display:flex;
+    align-items: center;
+}
+
+.search-input {
+    height: 5vh;
+    width: 70vw;
+    border-radius: 10vmin;
+}
+
+.search-button {
+    height: 5vh;
+    background-color: skyblue;
+    border-radius: 10vmin;
+    overflow: hidden;
+}

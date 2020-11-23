@@ -2,6 +2,8 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import ProfileButton from "./ProfileButton";
+import SearchBar from "./SearchBar";
+import "./nav.css"
 
 const Navigation = ({isLoaded}) => {
     const user = useSelector(state => state.session.user);
@@ -12,13 +14,16 @@ const Navigation = ({isLoaded}) => {
         </>
       );
     return (
-        <ul>
-            <li>
-                <NavLink to="/">Home</NavLink>
-            </li>
-                {isLoaded && links}
-
-        </ul>
+        <>
+            <ul class="nav">
+                <li>
+                    <NavLink to="/">Home</NavLink>
+                </li>
+                <li><SearchBar /></li>
+                    {isLoaded && links}
+            </ul>
+            <hr/>
+        </>
     );
 }
 
