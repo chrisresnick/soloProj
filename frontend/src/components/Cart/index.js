@@ -13,11 +13,12 @@ const Cart = () => {
         if(cartIsRefreshed) return;
         (async () => {
             const res = await fetch(`/api/cart/${id}`);
-            setCart(res.data.cart);
-            setCartIsRefreshed(true);
+            console.log(res);
+            setCart(res.data);
         })()
+        setCartIsRefreshed(true);
         return () => setCartIsRefreshed(false);
-    })
+    }, [cartIsRefreshed, id])
 
     // const html = !cartIsRefreshed ? (<h1>Loading Cart...</h1>) : (
     //     <>
