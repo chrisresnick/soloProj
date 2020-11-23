@@ -1,5 +1,5 @@
 import React from "react";
-import {useParams, Redirect} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import { fetch } from "../../store/csrf"
@@ -15,6 +15,7 @@ const Listing = () => {
     const [date, setDate] = useState(new Date());
     const [selectedImg, setSelectedImg] = useState(0);
     const [participants, setParticipants] = useState(1);
+    const history = useHistory();
     const user = useSelector(state => state.session.user)
 
     useEffect(()=> {
@@ -49,9 +50,7 @@ const Listing = () => {
             console.log(res);
             if(res.data.added){
                 console.log("hit");
-                return (
-                    <Redirect to="/cart"/>
-                );
+                history.push("/cart");
             }
 
         }
