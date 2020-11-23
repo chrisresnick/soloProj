@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
-const listingsRouter = require("./listings.js")
+const listingsRouter = require("./listings.js");
+const cartRouter = require("./cart.js");
 
 // // GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');

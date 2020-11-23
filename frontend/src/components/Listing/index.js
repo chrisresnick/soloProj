@@ -1,6 +1,7 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
+import {useSelector} from "react-redux";
 import { fetch } from "../../store/csrf"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -14,6 +15,7 @@ const Listing = () => {
     const [date, setDate] = useState(new Date());
     const [selectedImg, setSelectedImg] = useState(0);
     const [participants, setParticipants] = useState(1);
+    const user = useSelector(state => state.session.user)
 
     useEffect(()=> {
         (async () => {
@@ -33,8 +35,17 @@ const Listing = () => {
         console.log(selectedImg);
     }
 
-    const addToCart = (e) => {
+    const addToCart = async (e) => {
+        const res = await fetch("/api/cart", {
+            method: "POST",
+            body: JSON.stringify({
+                listing: params.id,
+                date,
+                participants,
+                user: user.id
+            })
 
+        })
     }
 
     return !loading && (
