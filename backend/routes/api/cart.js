@@ -16,6 +16,16 @@ router.post("/", asyncHadler( async (req, res) => {
     res.json({added: true})
 }));
 
+router.patch("/:id(\\d+)", asyncHadler(async (req, res) => {
+    const id = Number.parseInt(req.params.id);
+    const {participants, date} = req.body;
+    const item = await Cart.findByPk(id);
+    item.participants = participants;
+    item.date = date;
+    item.save()
+    .then(() => res.json({item}));
+}));
+
 router.get("/:id(\\d+)", asyncHadler(async (req, res) => {
     const user = Number.parseInt(req.params.id);
     const inCart = await Cart.findAll({where: {user},

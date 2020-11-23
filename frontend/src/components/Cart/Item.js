@@ -4,7 +4,7 @@ import {fetch} from "../../store/csrf";
 
 
 const Item = ({item, delFromCart}) => {
-    const listing = item.Listing;
+    const [listing, setListing] = item.Listing;
     const seller = listing.User;
     const [date, setDate] = useState(new Date(item.date));
     const [participants, setParticipants] = useState(item.participants);
@@ -17,7 +17,11 @@ const Item = ({item, delFromCart}) => {
     }
 
     const saveItem = (e) => {
-
+        const res = await fetch(`/api/cart/${listing.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({date, participants})
+        })
+        setListing(res.data.Listing)
     }
 
     return (
