@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {fetch}  from "../../store/csrf";
 import Item from "./Item";
+import "./cart.css"
 
 
 const Cart = () => {

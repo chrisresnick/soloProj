@@ -10,7 +10,7 @@ const SearchBar = () => {
     return (
         <form className="search" onSubmit={search}>
             <input className="search-input"type="text" value={str} onChange={e => setStr(e.target.value)}/>
-            <button className="search-button" onClick={search}><i class="fas fa-search"></i></button>
+            <button className="search-button" onClick={search}><i className="fas fa-search"></i></button>
         </form>
     );
 }
