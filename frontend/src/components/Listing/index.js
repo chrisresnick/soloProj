@@ -1,5 +1,5 @@
 import React from "react";
-import {useParams} from "react-router-dom";
+import {useParams, Redirect} from "react-router-dom";
 import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import { fetch } from "../../store/csrf"
@@ -36,16 +36,26 @@ const Listing = () => {
     }
 
     const addToCart = async (e) => {
-        const res = await fetch("/api/cart", {
-            method: "POST",
-            body: JSON.stringify({
-                listing: params.id,
-                date,
-                participants,
-                user: user.id
+        if(user){
+            const res = await fetch("/api/cart", {
+                method: "POST",
+                body: JSON.stringify({
+                    listing: params.id,
+                    date,
+                    participants,
+                    user: user.id
+                })
             })
+            console.log(res);
+            if(res.data.added){
+                console.log("hit");
+                return (
+                    <Redirect to="/cart"/>
+                );
+            }
 
-        })
+        }
+
     }
 
     return !loading && (
@@ -71,7 +81,7 @@ const Listing = () => {
                 <div class="form-holder">
                     <Calendar onChange={setDate} value={date}/>
                     <div className="guestsHolder">
-                        <label for="guests">Number of Participants</label>
+                        <label HTMLfor="guests">Number of Participants</label>
                         <input id="guests" type="number" value={participants} onChange={e => setParticipants(e.target.value)} />
                     </div>
                     <button className="add-to-cart" onClick={addToCart}>Add Trip to Cart</button>

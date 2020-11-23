@@ -45,5 +45,6 @@ router.post("/test", function (req, res) {
 router.use("/session", sessionRouter);
 router.use("/users", usersRouter);
 router.use("/listings", listingsRouter);
+router.use("/cart", cartRouter);
 
 module.exports = router;
