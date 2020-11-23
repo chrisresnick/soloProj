@@ -3,3 +3,7 @@
     margin: 0px;
     box-sizing: content-box;
 }
+
+body {
+    background-color: rgba(250, 250, 255, .5);
+}
