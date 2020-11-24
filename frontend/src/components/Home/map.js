@@ -1,11 +1,28 @@
-import React from "react";
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import React, {useState, useEffect} from "react";
+import { GoogleMap, LoadScript, Marker, InfoWindow, useGoogleMap } from '@react-google-maps/api';
 import {useHistory} from "react-router-dom";
 
 
 const Map = ({coords}) => {
 
     const history = useHistory();
+    const [map, setMap] = useState(null);
+    const [infoBoxes, setInfoBoxes] = useState({});
+    const [selected, setSelected] = useState(null);
+
+    useEffect(() => {
+        const iBoxObj = {};
+        coords.forEach(coord => {
+            iBoxObj[coord.id] = (
+            <InfoWindow key={coord.id} position={{lat:coord.latitude, lng:coord.longitude}}>
+                <div classname="infobox-info">
+                    <h2 className="infobox-title">{coord.Listing.title}</h2>
+                    <img className="infobox-photo" src={coord.Listing.photo} />
+                </div>
+            </InfoWindow>)
+        })
+        setInfoBoxes(iBoxObj);
+    }, [coords]);
 
     const center = { lat: 39.8283, lng: -98.5795 }
     const containerStyle = {
@@ -20,12 +37,16 @@ const Map = ({coords}) => {
                 center={center}
                 zoom={4}
                 mapTypeId="satellite"
-            >
+                onLoad={m => setMap(m)}>
+                <>
+                {selected}
                 {coords.map(coord => (
                 <Marker key={coord.id}
                     position={{lat:coord.latitude, lng:coord.longitude}}
                     onClick={(e) => history.push(`/listings/${coord.listingId}`)}
+                    onMouseOver={(e) =>  setSelected(infoBoxes[coord.id])}
                 />))}
+                </>
             </GoogleMap>
         </LoadScript>
     );
