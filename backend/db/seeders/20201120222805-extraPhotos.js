@@ -6,7 +6,7 @@ module.exports = {
 
      await queryInterface.bulkInsert('ExtraPhotos', [{
         listingId: (await Listing.findOne({where: {title: "Great Falls Climbing Trip"}})).id,
-        photo: "https://upload.wikimedia.org/wikipedia/commons/1/19/GreatFallsPotomocRiverWinter.jpg",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Great_Falls_National_Park_-_Lost_Arrow_%285.10%29_-_2.JPG",
         createdAt: new Date(),
         updatedAt: new Date()
       },

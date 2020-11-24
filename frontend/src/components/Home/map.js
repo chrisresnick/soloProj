@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { GoogleMap, LoadScript, Marker, InfoWindow, useGoogleMap } from '@react-google-maps/api';
-import {useHistory} from "react-router-dom";
+import { GoogleMap, LoadScript, Marker, InfoWindow,} from '@react-google-maps/api';
+import {useHistory, NavLink} from "react-router-dom";
 
 
 const Map = ({coords}) => {
@@ -16,7 +16,9 @@ const Map = ({coords}) => {
             iBoxObj[coord.id] = (
             <InfoWindow key={coord.id} position={{lat:coord.latitude, lng:coord.longitude}}>
                 <div classname="infobox-info">
-                    <h2 className="infobox-title">{coord.Listing.title}</h2>
+                    <h2 className="infobox-title">
+                        <NavLink to={`/listings/${coord.Listing.id}`}>{coord.Listing.title}</NavLink>
+                    </h2>
                     <img className="infobox-photo" src={coord.Listing.photo} />
                 </div>
             </InfoWindow>)
