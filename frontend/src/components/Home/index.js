@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         (async () => {
-            const {data} = await fetch("api/listings/");
+            const {data} = await fetch("api/coords/");
             setListings(data);
         })()
     }, []);
