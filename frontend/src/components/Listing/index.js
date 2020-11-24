@@ -22,7 +22,11 @@ const Listing = () => {
     const history = useHistory();
     const user = useSelector(state => state.session.user)
 
-    const from = hideReviewFrom ? null : <ReviewForm userId={user.id} />
+    const form = hideReviewFrom ?
+        (<button
+            onClick={e => setHideReviewFrom(false)}>Leave a Review
+        </button>) :
+        <ReviewForm userId={user.id} setShow={setHideReviewFrom}/>
 
     useEffect(()=> {
         (async () => {
@@ -81,7 +85,6 @@ const Listing = () => {
 
                 </div>
                 {listing.User.received.map(review => <Review key={review.id}review={review}/>)}
-                <button onClick={e => setHideReviewFrom(false)}>Leave a Review</button>
                 {form}
             </div>
             <div className="info">

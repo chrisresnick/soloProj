@@ -15,7 +15,7 @@ i {
     margin-right: 5px;
 }
 
-.review-holder {
+.review-holder, .reviewForm-holder {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
