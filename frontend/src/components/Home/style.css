@@ -11,3 +11,8 @@
     height: 50%;
     width: 60%;
 }
+
+.infobox-photo {
+    max-height: 100px;
+    max-width: 100px;
+}
