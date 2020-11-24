@@ -9,7 +9,20 @@ module.exports = {
         photo: "https://upload.wikimedia.org/wikipedia/commons/1/19/GreatFallsPotomocRiverWinter.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
-      }], {});
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Liberty Bell Mountain"}})).id,
+        photo: "https://i.ibb.co/hH1wynL/liberty-bell-climb.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Liberty Bell Mountain"}})).id,
+        photo: "https://upload.wikimedia.org/wikipedia/commons/6/63/Early_Winters_Spires_and_Liberty_Bell.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+      ], {});
   },
 
   down: async (queryInterface, Sequelize) => {

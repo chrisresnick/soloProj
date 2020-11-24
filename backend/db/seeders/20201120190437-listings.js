@@ -16,11 +16,11 @@ module.exports = {
          updatedAt: new Date(),
         },
                 {
-         title: "Climb Bekcey Route, Liberty Bell Mountain",
+         title: "Liberty Bell Mountain",
          seller: (await User.findOne({where: {username: 'FakeUser1'}})).id,
          description: "Climb Becky Route on Liberty Bell in the North Cascades",
-         photo: "",
-         priceCents: 50000,
+         photo: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Liberty_Bell_Mountain_seen_from_Highway_20.jpg",
+         priceCents: 75000,
          createdAt: new Date(),
          updatedAt: new Date(),
         }
