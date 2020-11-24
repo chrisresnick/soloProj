@@ -40,6 +40,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasMany(models.Listing, {foreignKey: "seller"});
       User.hasMany(models.Cart, {foreignKey: "user"});
+      User.hasMany(models.Review, {as: "received", foreignKey: "forUser"});
+      User.hasMany(models.Review, {as: "written", foreignKey: "fromUser"});
     }
   };
   User.init(
