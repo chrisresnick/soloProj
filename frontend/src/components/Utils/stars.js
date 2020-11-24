@@ -1,17 +1,18 @@
 import React from "react";
+import "./stars.css";
 
-const Start = ({rating, userId}) => {
-    const fullStar = "fas fa-star"
-    const halfStar = "fas fa-star-half-alt"
-    const noStar = "far fa-star"
+const Star = ({rating, userId}) => {
+    const fullStar = "fas fa-star fa-xs"
+    const halfStar = "fas fa-star-half-alt fa-xs"
+    const noStar = "far fa-star fa-xs"
     const range = [];
-    for(let num = 0; num <=5; n++) range.push(num);
+    for(let num = 1; num <=5; num++) range.push(num);
     return (
         <div className="star-holder">
             {/* {range.map(n => rating < n ? noStar : (rating < n+1 ? halfStar : fullStar))} */}
             {range.map((n) => (
                 <i
-                    className={rating < n ? noStar : (rating < n+1 ? halfStar : fullStar)}
+                    className={rating > n ? fullStar : (rating > n-1 ? halfStar : noStar)}
                     key={`${userId}-${n}`}
                 >
 
@@ -19,3 +20,5 @@ const Start = ({rating, userId}) => {
         </div>
     )
 }
+
+export default Star;

@@ -4,6 +4,7 @@ import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import { fetch } from "../../store/csrf"
 import Calendar from 'react-calendar';
+import Star from "../Utils/stars";
 import 'react-calendar/dist/Calendar.css';
 import "./listing.css";
 
@@ -75,6 +76,9 @@ const Listing = () => {
             </div>
             <div className="info">
                 <h1>{listing.title}</h1>
+                <div class="seller">
+                    <Star rating={2.5} userId={listing.User.id}/>
+                </div>
                 <p>{listing.description}</p>
                 <p>${(listing.priceCents/100).toFixed(2)}</p>
                 <div class="form-holder">
