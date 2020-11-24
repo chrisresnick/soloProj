@@ -63,25 +63,26 @@ const Listing = () => {
         <div className="disp">
             <div className="imgs">
                 <div className ="imgHolder">
-                    <i class="fas fa-chevron-up" onClick={() => adjustSelected(-1)}></i>
+                    <i className="fas fa-chevron-up" onClick={() => adjustSelected(-1)}></i>
                     {imgs.map((imig, idx) => <img key={idx} onMouseOver={() => setSelectedImg(idx)} src={imig} alt={listing.title}/>)}
-                    <i class="fas fa-chevron-down" onClick={() => adjustSelected(1)}></i>
+                    <i className="fas fa-chevron-down" onClick={() => adjustSelected(1)}></i>
                 </div>
-                <div class="main-img-holder">
-                    <i class="fas fa-chevron-left" onClick={() => adjustSelected(-1)}></i>
+                <div className="main-img-holder">
+                    <i className="fas fa-chevron-left" onClick={() => adjustSelected(-1)}></i>
                     <img className="main-img" src={imgs[selectedImg]} alt={listing.title}/>
-                    <i class="fas fa-chevron-right" onClick={() => adjustSelected(1)}></i>
+                    <i className="fas fa-chevron-right" onClick={() => adjustSelected(1)}></i>
                 </div>
 
             </div>
             <div className="info">
                 <h1>{listing.title}</h1>
-                <div class="seller">
+                <div className="seller">
+                    <p>Guide: <b>{listing.User.username}</b></p>
                     <Star rating={2.5} userId={listing.User.id}/>
                 </div>
                 <p>{listing.description}</p>
                 <p>${(listing.priceCents/100).toFixed(2)}</p>
-                <div class="form-holder">
+                <div className="form-holder">
                     <Calendar onChange={setDate} value={date}/>
                     <div className="guestsHolder">
                         <label htmlFor="guests">Number of Participants</label>

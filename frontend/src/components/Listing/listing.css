@@ -7,6 +7,14 @@ i {
     max-height: 100%;
 }
 
+.seller {
+    display: flex;
+}
+
+.seller p {
+    margin-right: 5px;
+}
+
 .main-img-holder {
     width: 90%;
     height: 100%;
