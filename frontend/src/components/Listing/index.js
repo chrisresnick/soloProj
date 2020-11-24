@@ -14,6 +14,7 @@ const Listing = () => {
     const params = useParams();
     const [listing, setListing] = useState({});
     const [loading, setLoading] = useState(true);
+    const [newReview, setNewReview] = useState(false);
     const [hideReviewFrom, setHideReviewFrom] = useState(true);
     const [imgs, setImgs] = useState([]);
     const [date, setDate] = useState(new Date());
@@ -29,7 +30,7 @@ const Listing = () => {
                 onClick={e => setHideReviewFrom(false)}>Leave a Review
             </button>
         </div>) :
-        <ReviewForm userId={user.id} setShow={setHideReviewFrom}/>
+        <ReviewForm sellerId={listing.User.id} setShow={setHideReviewFrom} setNewReview={setNewReview}/>
 
     useEffect(()=> {
         (async () => {
@@ -39,7 +40,8 @@ const Listing = () => {
             setLoading(false);
             setImgs([res.data.photo, ...res.data.ExtraPhotos]);
         })()
-    }, [params])
+        setNewReview[false]
+    }, [params, newReview])
 
     const adjustSelected = (num) =>  {
         let newSelected = selectedImg + num;
