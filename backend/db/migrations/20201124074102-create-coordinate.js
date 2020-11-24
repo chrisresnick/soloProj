@@ -10,13 +10,16 @@ module.exports = {
       },
       listingId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {model: "Listings"}
       },
       latitude: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
+        allowNull: false
       },
       longitude: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.DOUBLE,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
