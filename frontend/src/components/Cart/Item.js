@@ -3,8 +3,9 @@ import {NavLink} from "react-router-dom";
 import {fetch} from "../../store/csrf";
 
 
-const Item = ({item, delFromCart}) => {
-    const [listing, setListing] = item.Listing;
+const Item = ({ITEM, delFromCart}) => {
+    const [item, setItem] = useState(ITEM);
+    const listing = item.Listing;
     const seller = listing.User;
     const [date, setDate] = useState(new Date(item.date));
     const [participants, setParticipants] = useState(item.participants);
@@ -16,12 +17,12 @@ const Item = ({item, delFromCart}) => {
         delFromCart(item.id);
     }
 
-    const saveItem = (e) => {
-        const res = await fetch(`/api/cart/${listing.id}`, {
+    const saveItem = async (e) => {
+        const res = await fetch(`/api/cart/${item.id}`, {
             method: 'PATCH',
             body: JSON.stringify({date, participants})
         })
-        setListing(res.data.Listing)
+        setItem(res.data.item)
     }
 
     return (
@@ -53,4 +54,4 @@ const Item = ({item, delFromCart}) => {
     );
 }
 
-export default Item;
+export default React.memo(Item);

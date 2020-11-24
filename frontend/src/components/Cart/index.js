@@ -9,6 +9,11 @@ const Cart = () => {
     const [cart, setCart] = useState([])
     const {id} = useSelector(state => state.session.user);
     const [cartIsRefreshed, setCartIsRefreshed] = useState(false);
+    const total = cart.reduce((acc, item) => acc+item.Listing.priceCents*item.participants, 0);
+
+    const checkOut= () => {
+
+    };
 
     useEffect(() => {
         if(cartIsRefreshed) return;
@@ -35,9 +40,21 @@ const Cart = () => {
     // );
 
     return  cartIsRefreshed ? (
-        <>
-            {cart.map(item => <Item key={item.id} item={item} delFromCart={delFromCart}/>)}
-        </>
+        <div className="cart">
+            <div className="items">
+                <div className="empty-cart">{cart.length ? null : "Your Cart is Empty"}</div>
+                {cart.map(item => <Item key={item.id} ITEM={item} delFromCart={delFromCart}/>)}
+            </div>
+            <div className ="checkout">
+                <h2>Check Out</h2>
+                <div className="chInfo">
+                    <p>Total ${(total/100).toFixed(2)}</p>
+                </div>
+                <div className="chButton">
+                    <i class="fas fa-cash-register" onClick={checkOut}></i>
+                </div>
+            </div>
+        </div>
     ) : (
         <h1>Loading cart...</h1>
     )

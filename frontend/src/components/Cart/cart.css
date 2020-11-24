@@ -1,3 +1,18 @@
+.cart {
+    display: flex;
+    justify-content: space-around;
+}
+
+.checkout {
+    outline: 1px solid rgba(0,0,0,.25);
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    margin-top: 6px;
+    min-width: 15vw;
+    justify-content: space-between;
+}
+
 .horizontal-listing {
     display: flex;
     outline: 1px solid rgba(0,0,0,.25);
@@ -7,6 +22,17 @@
     margin-top: 6px;
 }
 
+.chInfo {
+    height: 100%;
+    padding: 5px;
+}
+
+
+
+.chButton, .checkout h2 {
+    align-self: center;
+}
+
 .listing-info {
     width: 100%;
     display: flex;
@@ -14,11 +40,10 @@
     justify-content: space-between;
 }
 
-.button-holder i {
+.cart i {
     margin: 5px;
     cursor: pointer;
 }
-
 
 .title {
     text-align: center;

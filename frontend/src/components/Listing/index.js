@@ -80,7 +80,7 @@ const Listing = () => {
                 <div class="form-holder">
                     <Calendar onChange={setDate} value={date}/>
                     <div className="guestsHolder">
-                        <label HTMLfor="guests">Number of Participants</label>
+                        <label htmlFor="guests">Number of Participants</label>
                         <input id="guests" type="number" value={participants} onChange={e => setParticipants(e.target.value)} />
                     </div>
                     <button className="add-to-cart" onClick={addToCart}>Add Trip to Cart</button>

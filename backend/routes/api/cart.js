@@ -19,11 +19,14 @@ router.post("/", asyncHadler( async (req, res) => {
 router.patch("/:id(\\d+)", asyncHadler(async (req, res) => {
     const id = Number.parseInt(req.params.id);
     const {participants, date} = req.body;
-    const item = await Cart.findByPk(id);
+    const item = await Cart.findByPk(id,
+        {include: {model: Listing, include: User}}
+        );
     item.participants = participants;
     item.date = date;
-    item.save()
-    .then(() => res.json({item}));
+    await item.save()
+    res.json({item});
+
 }));
 
 router.get("/:id(\\d+)", asyncHadler(async (req, res) => {
