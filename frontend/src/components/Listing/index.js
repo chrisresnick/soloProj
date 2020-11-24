@@ -6,6 +6,7 @@ import { fetch } from "../../store/csrf"
 import Calendar from 'react-calendar';
 import Star from "../Utils/stars";
 import Review from "./review";
+import ReviewForm from "./reviewForm";
 import 'react-calendar/dist/Calendar.css';
 import "./listing.css";
 
@@ -13,12 +14,15 @@ const Listing = () => {
     const params = useParams();
     const [listing, setListing] = useState({});
     const [loading, setLoading] = useState(true);
+    const [hideReviewFrom, setHideReviewFrom] = useState(true);
     const [imgs, setImgs] = useState([]);
     const [date, setDate] = useState(new Date());
     const [selectedImg, setSelectedImg] = useState(0);
     const [participants, setParticipants] = useState(1);
     const history = useHistory();
     const user = useSelector(state => state.session.user)
+
+    const from = hideReviewFrom ? null : <ReviewForm userId={user.id} />
 
     useEffect(()=> {
         (async () => {
@@ -77,6 +81,8 @@ const Listing = () => {
 
                 </div>
                 {listing.User.received.map(review => <Review key={review.id}review={review}/>)}
+                <button onClick={e => setHideReviewFrom(false)}>Leave a Review</button>
+                {form}
             </div>
             <div className="info">
                 <h1>{listing.title}</h1>
