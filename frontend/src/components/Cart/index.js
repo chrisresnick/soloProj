@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 import {fetch}  from "../../store/csrf";
 import Item from "./Item";
 import "./cart.css"
@@ -9,10 +10,18 @@ const Cart = () => {
     const [cart, setCart] = useState([])
     const {id} = useSelector(state => state.session.user);
     const [cartIsRefreshed, setCartIsRefreshed] = useState(false);
+    const history = useHistory();
     const total = cart.reduce((acc, item) => acc+item.Listing.priceCents*item.participants, 0);
 
-    const checkOut= () => {
-
+    const checkOut = async (e) => {
+        const res = await fetch("/api/cart/checkout", {
+            method: "POST",
+            body: JSON.stringify({id})
+        })
+        if(res.data.success) {
+            setCart([]);
+            history.push("/");
+        }
     };
 
     useEffect(() => {

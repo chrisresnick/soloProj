@@ -24,7 +24,7 @@ const Navigation = ({isLoaded}) => {
       );
     return (
         <>
-            <ul class="nav">
+            <ul className="nav">
                 <li>
                     <NavLink to="/">Home</NavLink>
                 </li>

@@ -16,6 +16,12 @@ router.post("/", asyncHadler( async (req, res) => {
     res.json({added: true})
 }));
 
+router.post("/checkout/", asyncHadler(async (req, res) => {
+    const user = req.body.id;
+    await Cart.destroy({where: {user}})
+    return res.json({success:true});
+}))
+
 router.patch("/:id(\\d+)", asyncHadler(async (req, res) => {
     const id = Number.parseInt(req.params.id);
     const {participants, date} = req.body;
