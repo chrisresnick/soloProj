@@ -78,7 +78,7 @@ const Listing = () => {
                 <h1>{listing.title}</h1>
                 <div className="seller">
                     <p>Guide: <b>{listing.User.username}</b></p>
-                    <Star rating={2.5} userId={listing.User.id}/>
+                    <Star rating={listing.User.rating} userId={listing.User.id}/>
                 </div>
                 <p>{listing.description}</p>
                 <p>${(listing.priceCents/100).toFixed(2)}</p>

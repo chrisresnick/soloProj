@@ -12,7 +12,7 @@ const Star = ({rating, userId}) => {
             {/* {range.map(n => rating < n ? noStar : (rating < n+1 ? halfStar : fullStar))} */}
             {range.map((n) => (
                 <i
-                    className={rating > n ? fullStar : (rating > n-1 ? halfStar : noStar)}
+                    className={rating >= n ? fullStar : (rating > n-1 ? halfStar : noStar)}
                     key={`${userId}-${n}`}
                 >
 
