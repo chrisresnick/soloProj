@@ -55,6 +55,26 @@ i {
     border-radius: 25px;
 }
 
+.left-col button {
+    width: 42.5%;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.formBtn-holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    min-height: 10vh;
+    margin-bottom: 6px;
+}
+
 
 .guests-holder {
     width: 85%;

@@ -23,9 +23,12 @@ const Listing = () => {
     const user = useSelector(state => state.session.user)
 
     const form = hideReviewFrom ?
-        (<button
-            onClick={e => setHideReviewFrom(false)}>Leave a Review
-        </button>) :
+        (
+        <div className="formBtn-holder">
+            <button
+                onClick={e => setHideReviewFrom(false)}>Leave a Review
+            </button>
+        </div>) :
         <ReviewForm userId={user.id} setShow={setHideReviewFrom}/>
 
     useEffect(()=> {
