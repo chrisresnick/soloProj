@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import { fetch } from "../../store/csrf"
 import Calendar from 'react-calendar';
 import Star from "../Utils/stars";
+import Review from "./review";
 import 'react-calendar/dist/Calendar.css';
 import "./listing.css";
 
@@ -61,18 +62,21 @@ const Listing = () => {
     return !loading && (
        <>
         <div className="disp">
-            <div className="imgs">
-                <div className ="imgHolder">
-                    <i className="fas fa-chevron-up" onClick={() => adjustSelected(-1)}></i>
-                    {imgs.map((imig, idx) => <img key={idx} onMouseOver={() => setSelectedImg(idx)} src={imig} alt={listing.title}/>)}
-                    <i className="fas fa-chevron-down" onClick={() => adjustSelected(1)}></i>
-                </div>
-                <div className="main-img-holder">
-                    <i className="fas fa-chevron-left" onClick={() => adjustSelected(-1)}></i>
-                    <img className="main-img" src={imgs[selectedImg]} alt={listing.title}/>
-                    <i className="fas fa-chevron-right" onClick={() => adjustSelected(1)}></i>
-                </div>
+            <div className="left-col">
+                <div className="imgs">
+                    <div className ="imgHolder">
+                        <i className="fas fa-chevron-up" onClick={() => adjustSelected(-1)}></i>
+                        {imgs.map((imig, idx) => <img key={idx} onMouseOver={() => setSelectedImg(idx)} src={imig} alt={listing.title}/>)}
+                        <i className="fas fa-chevron-down" onClick={() => adjustSelected(1)}></i>
+                    </div>
+                    <div className="main-img-holder">
+                        <i className="fas fa-chevron-left" onClick={() => adjustSelected(-1)}></i>
+                        <img className="main-img" src={imgs[selectedImg]} alt={listing.title}/>
+                        <i className="fas fa-chevron-right" onClick={() => adjustSelected(1)}></i>
+                    </div>
 
+                </div>
+                {listing.User.received.map(review => <Review key={review.id}review={review}/>)}
             </div>
             <div className="info">
                 <h1>{listing.title}</h1>

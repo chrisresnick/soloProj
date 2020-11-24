@@ -12,7 +12,7 @@ const avrgRating = (ratings) => {
 router.get("/:id(\\d+)", asyncHadler(async (req, res) => {
     const id = Number.parseInt(req.params.id);
     const listing = await Listing.findByPk(id,
-        {include: [ExtraPhoto, {model:User, include: {model: Review, as: "received"}}]});
+        {include: [ExtraPhoto, {model:User, include: {model: Review, as: "received", include: {model: User, as:"author"}}}]});
     const json = listing.toJSON();
     json.ExtraPhotos = json.ExtraPhotos.map(e => e.photo);
     json.User.rating = avrgRating(json.User.received)
