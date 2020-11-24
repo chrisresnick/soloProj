@@ -1,3 +1,8 @@
 .star-holder i {
     margin: 0px;
+    cursor: unset;
+}
+
+.starSetter-holder i{
+    margin: 0;
 }
