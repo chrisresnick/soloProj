@@ -52,7 +52,7 @@ const Cart = () => {
         <div className="cart">
             <div className="items">
                 <div className="empty-cart">{cart.length ? null : "Your Cart is Empty"}</div>
-                {cart.map(item => <Item key={item.id} ITEM={item} delFromCart={delFromCart}/>)}
+                {cart.map(item => <Item key={item.id} ITEM={item} cart={cart} setCart={setCart} delFromCart={delFromCart}/>)}
             </div>
             <div className ="checkout">
                 <h2>Check Out</h2>

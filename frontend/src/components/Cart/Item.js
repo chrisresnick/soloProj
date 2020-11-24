@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import {fetch} from "../../store/csrf";
 
 
-const Item = ({ITEM, delFromCart}) => {
+const Item = ({ITEM, delFromCart, cart, setCart}) => {
     const [item, setItem] = useState(ITEM);
     const listing = item.Listing;
     const seller = listing.User;
@@ -22,7 +22,10 @@ const Item = ({ITEM, delFromCart}) => {
             method: 'PATCH',
             body: JSON.stringify({date, participants})
         })
-        setItem(res.data.item)
+        //setItem(res.data.item)
+        const newCart = cart.filter(it => it.id !== res.data.item.id)
+        newCart.push(res.data.item);
+        setCart(newCart);
     }
 
     return (
@@ -54,4 +57,4 @@ const Item = ({ITEM, delFromCart}) => {
     );
 }
 
-export default React.memo(Item);
+export default Item;
