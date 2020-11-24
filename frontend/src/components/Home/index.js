@@ -12,12 +12,13 @@ const Home = () => {
         (async () => {
             const {data} = await fetch("api/coords/");
             setListings(data);
+            console.log(data);
         })()
     }, []);
 
     return (
         <div className="home-holder">
-            <Map listings={listings}/>
+            <Map coords={listings}/>
         </div>
     );
 }
