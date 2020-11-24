@@ -5,7 +5,7 @@ const Review = ({review}) => {
     return (
     <div className="review-holder">
         <div className="review-top">
-            {review.author.username}
+            <p>Review by <b>{review.author.username}</b></p>
             <Stars rating={review.rating} userId={review.author.userId}/>
         </div>
         <p>{review.review}</p>
