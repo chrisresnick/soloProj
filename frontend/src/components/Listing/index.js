@@ -63,7 +63,7 @@ const Listing = () => {
             <div className="imgs">
                 <div className ="imgHolder">
                     <i class="fas fa-chevron-up" onClick={() => adjustSelected(-1)}></i>
-                    {imgs.map((imig, idx) => <img key={idx} onClick={() => setSelectedImg(idx)} src={imig} alt={listing.title}/>)}
+                    {imgs.map((imig, idx) => <img key={idx} onMouseOver={() => setSelectedImg(idx)} src={imig} alt={listing.title}/>)}
                     <i class="fas fa-chevron-down" onClick={() => adjustSelected(1)}></i>
                 </div>
                 <div class="main-img-holder">
