@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation/index";
 import Listing from "./components/Listing/index";
 import Cart from "./components/Cart/index";
 import Home from "./components/Home/index";
+import Search from "./components/Search/index";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" component={SignupForm} />
         <Route path="/cart" component={Cart} />
         <Route path="/listings/:id" component={Listing} />
+        <Route path="/search" component={Search} />
         <Route path="/" component={Home} />
       </Switch>
   )}
