@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {fetch} from "../../store/csrf";
 import StarSetter from "../Utils/starSetter";
-import starSetter from "../Utils/starSetter";
 
 const ReviewForm = ({sellerId, setShow, setNewReview}) => {
     const [review, setReview] = useState("");

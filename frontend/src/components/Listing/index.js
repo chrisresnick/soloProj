@@ -27,7 +27,8 @@ const Listing = () => {
         (
         <div className="formBtn-holder">
             <button
-                onClick={e => setHideReviewFrom(false)}>Leave a Review
+                onClick={e => setHideReviewFrom(false)}>
+                    Leave a Review
             </button>
         </div>) :
         <ReviewForm sellerId={listing.User.id} setShow={setHideReviewFrom} setNewReview={setNewReview}/>
@@ -40,7 +41,7 @@ const Listing = () => {
             setLoading(false);
             setImgs([res.data.photo, ...res.data.ExtraPhotos]);
         })()
-        setNewReview[false]
+        setNewReview(false);
     }, [params, newReview])
 
     const adjustSelected = (num) =>  {
@@ -62,12 +63,11 @@ const Listing = () => {
                     user: user.id
                 })
             })
-            console.log(res);
             if(res.data.added){
-                console.log("hit");
                 history.push("/cart");
             }
-
+        } else {
+            history.push("/login");
         }
 
     }

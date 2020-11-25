@@ -1,32 +1,37 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
-import ProfileButton from "./ProfileButton";
+import {useHistory} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import * as sessionActions from "../../store/session"
 import SearchBar from "./SearchBar";
 import "./nav.css"
 
 const Navigation = ({isLoaded}) => {
     const user = useSelector(state => state.session.user);
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const logout = e => {
+        dispatch(sessionActions.logout());
+    }
     const links = user ? (
         <>
-        <li><ProfileButton user={user} /></li>
+        <li><i className="fas fa-sign-out-alt" onClick={logout}></i></li>
         <li>
-            <NavLink to="/cart">
-                <i class="fas fa-shopping-cart"></i>
-            </NavLink>
+            <i  className="fas fa-shopping-cart"
+                onClick={() => history.push("/cart")}></i>
         </li>
         </>
     ) : (
         <>
-          <li><NavLink to="/login">Log In</NavLink></li>
-          <li><NavLink to="/signup">Sign Up</NavLink></li>
+          <li><i className="fas fa-sign-in-alt" onClick={() => history.push("/login")}></i></li>
+          <li><i className="fas fa-user-plus" onClick={() => history.push("/signup")}></i></li>
         </>
       );
     return (
         <>
             <ul className="nav">
                 <li>
-                    <NavLink to="/">Home</NavLink>
+                <i className="fas fa-mountain" onClick={() => history.push("/")}></i>
                 </li>
                 <li><SearchBar /></li>
                     {isLoaded && links}
