@@ -10,7 +10,10 @@
     align-items: center;
     margin-right: 4px;
 }
-
+.search-description {
+    max-height: 20vh;
+    overflow: hidden;
+}
 .search-photo {
     max-height: 100%;
     max-width: 100%;

@@ -27,7 +27,7 @@ const Search = () => {
         <div className="searchResult-holder">
             {loadingDisp}
             {loading && found}
-            {results.map(result => <Result key={result.id} listing={result}/>)}
+            {results.map(result => <Result key={`${result.id}-${searchTerm}`} listing={result}/>)}
         </div>
     )
 }
