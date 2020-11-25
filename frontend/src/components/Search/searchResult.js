@@ -3,18 +3,21 @@ import {NavLink} from "react-router-dom";
 
 const Result = ({listing}) => {
     return (
-        <div className="search-listing">
-            <div className="photo-holder">
-                <img className="listing-photo" src={listing.photo} alt={listing.title}/>
+        <div className="search-main">
+            <div className="title">
+                <NavLink to={`listings/${listing.id}`}>
+                    <h2>{listing.title}</h2>
+                </NavLink>
             </div>
-            <div className="search-info">
-                <div className="listing-info">
-                    <div className="title">
-                        <NavLink to={`listings/${listing.id}`}>
-                            <h2>{listing.title}</h2>
-                        </NavLink>
-                    </div>
-                    <p>Sold by {listing.User.username}</p>
+            <div className="search-listing">
+                <div className="search-photo-holder">
+                    <img className="search-photo" src={listing.photo} alt={listing.title}/>
+                </div>
+                <div className="search-info">
+                        <div className="search-description">
+                            {listing.description}
+                        </div>
+                        <p>Sold by <b>{listing.User.username}</b></p>
                 </div>
             </div>
         </div>
