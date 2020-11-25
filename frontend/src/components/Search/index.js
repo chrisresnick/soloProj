@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useSelector } from "react-redux";
 import Result from "./searchResult";
 import {fetch} from "../../store/csrf";
+import "./search.css"
 
 const Search = () => {
 
@@ -21,13 +22,12 @@ const Search = () => {
         })()
     }, [searchTerm])
     let loadingDisp = loading ? (<h1>Loading...</h1>) : null;
+    let found = results.length === 0 ? (<h1>No results found</h1>) : null;
     return (
         <div className="searchResult-holder">
             {loadingDisp}
-            <pre>
-                {results}
-            </pre>
-            {results.length && results.map(result => <Result key={result.id} listing={result}/>)}
+            {loading && found}
+            {results.map(result => <Result key={result.id} listing={result}/>)}
         </div>
     )
 }

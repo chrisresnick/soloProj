@@ -14,10 +14,10 @@ const SearchBar = () => {
         history.push("/search");
     }
     return (
-        <div className="search" onSubmit={search}>
+        <form className="search" onSubmit={search}>
             <input className="search-input"type="text" value={str} onChange={e => setStr(e.target.value)}/>
             <i onClick={search}className="fas fa-search"></i>
-        </div>
+        </form>
     );
 }
 
