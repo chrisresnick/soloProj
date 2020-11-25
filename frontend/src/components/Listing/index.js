@@ -1,17 +1,19 @@
 import React from "react";
 import {useParams, useHistory} from "react-router-dom";
 import {useState, useEffect} from "react";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import { fetch } from "../../store/csrf"
 import Calendar from 'react-calendar';
 import Star from "../Utils/stars";
 import Review from "./review";
 import ReviewForm from "./reviewForm";
+import * as requireActions from "../../store/require";
 import 'react-calendar/dist/Calendar.css';
 import "./listing.css";
 
 const Listing = () => {
     const params = useParams();
+    const dispatch = useDispatch();
     const [listing, setListing] = useState({});
     const [loading, setLoading] = useState(true);
     const [newReview, setNewReview] = useState(false);
@@ -67,7 +69,7 @@ const Listing = () => {
                 history.push("/cart");
             }
         } else {
-            history.push("/login");
+            dispatch(requireActions.setRequireLogin(true));
         }
 
     }
