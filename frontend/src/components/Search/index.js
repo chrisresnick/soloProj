@@ -13,8 +13,9 @@ const Search = () => {
         (async () => {
             const res = await fetch("/api/search", {
                 method: "POST",
-                body: JSON.stringify(searchTerm)
+                body: JSON.stringify({searchTerm})
             })
+            console.log(res)
             setResults(res.data);
             setLoading(false);
         })()
@@ -23,8 +24,10 @@ const Search = () => {
     return (
         <div className="searchResult-holder">
             {loadingDisp}
-            <h1>{searchTerm}</h1>
-            {results.map(result => <Result key={result.id} listing={result}/>)}
+            <pre>
+                {results}
+            </pre>
+            {results.length && results.map(result => <Result key={result.id} listing={result}/>)}
         </div>
     )
 }

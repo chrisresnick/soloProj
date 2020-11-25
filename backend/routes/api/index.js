@@ -5,6 +5,7 @@ const listingsRouter = require("./listings.js");
 const cartRouter = require("./cart.js");
 const coordsRouter = require("./coords.js")
 const reviewsRouter = require("./reviews.js");
+const searchRouter = require("./search.js");
 
 // // GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');
@@ -50,5 +51,6 @@ router.use("/listings", listingsRouter);
 router.use("/cart", cartRouter);
 router.use("/coords", coordsRouter);
 router.use("/reviews", reviewsRouter);
+router.use("/search", searchRouter);
 
 module.exports = router;
