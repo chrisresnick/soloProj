@@ -20,5 +20,39 @@
 
 #modal-content {
     position: absolute;
-    background-color: white;
+    background-color: skyblue;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.login-form-holder {
+    width: 33vw;
+    min-height: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.tab-holder {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-around;
+}
+
+.tab-holder div {
+    width: 50%;
+    text-align: center;
+}
+
+.tab-notSelected {
+    background-color: slategray;
+}
+.login-form-holder input {
+    width: 25vw;
+    border-radius: 25px;
+}
+
+.login-form-holder button {
+    width: 25vw;
+    border-radius: 25px;
 }

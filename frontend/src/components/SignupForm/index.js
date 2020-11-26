@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {Redirect} from "react-router-dom";
 import "./signupForm.css";
 
-const SignupFrom = ({toggleLogin}) => {
+const SignupFrom = () => {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState("");
@@ -33,20 +33,16 @@ const SignupFrom = ({toggleLogin}) => {
 
 
     return (
-        <>
+        <div className="login-form-holder">
             <ul>
                 {errors.map((err, idx) => <li key={idx}>{err}</li>)}
             </ul>
-            <form onSubmit={handleSubmit}>
-                <input value={username} onChange={e => setUsername(e.target.value)} placeholder="username" type="text" required/>
-                <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" type="text" required/>
-                <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password"  type="password" required/>
-                <input value={cPassword} onChange={e => setCPassword(e.target.value)} placeholder="confirm password"  type="password" required/>
-                <input type="submit"/>
-                <button onClick={toggleLogin}>Log into Existing Account</button>
-            </form>
-
-        </>
+            <input value={username} onChange={e => setUsername(e.target.value)} placeholder="username" type="text" required/>
+            <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" type="text" required/>
+            <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password"  type="password" required/>
+            <input value={cPassword} onChange={e => setCPassword(e.target.value)} placeholder="confirm password"  type="password" required/>
+            <button onClick={handleSubmit}>Submit</button>
+        </div>
     );
 }
 

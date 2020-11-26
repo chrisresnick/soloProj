@@ -6,7 +6,7 @@ import {useDispatch, } from "react-redux";
 import "./loginForm.css";
 
 
-const LoginFormPage = ({toggleLogin}) => {
+const LoginFormPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,17 +25,14 @@ const LoginFormPage = ({toggleLogin}) => {
     }
 
     return (
-        <>
+        <div className="login-form-holder">
             <ul>
                 {errors.map((err, idx) => <li key={idx}>{err}</li>)}
             </ul>
-            <form id="login" onSubmit={handleSubmit}>
-                <input value={email} onChange={e => setEmail(e.target.value)} placeholder="username" type="text" required/>
-                <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password" type="password" required/>
-                <input type="submit" value="Log In"/>
-                <button onClick={toggleLogin}>register</button>
-            </form>
-        </>
+            <input value={email} onChange={e => setEmail(e.target.value)} placeholder="username" type="text" required/>
+            <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password" type="password" required/>
+            <button className={handleSubmit}>Log In</button>
+        </div>
     );
 }
 
