@@ -24,6 +24,17 @@ const LoginFormPage = () => {
         });
     }
 
+    const demoUser = e => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.login({
+            credential : 'Demo-lition',
+            password: "password"
+        })).catch(res => {
+            if(res.data && res.data.errors) setErrors(res.data.errors)
+        });
+    }
+
     return (
         <div className="login-form-holder">
             <ul>
@@ -32,6 +43,7 @@ const LoginFormPage = () => {
             <input value={email} onChange={e => setEmail(e.target.value)} placeholder="username" type="text" required/>
             <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password" type="password" required/>
             <button onClick={handleSubmit}>Log In</button>
+            <button onClick={demoUser}>Log in as Demo User</button>
         </div>
     );
 }
