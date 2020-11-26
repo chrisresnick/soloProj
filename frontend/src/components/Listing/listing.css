@@ -2,10 +2,16 @@ i {
     font-size: 5vmin;
 }
 
+.disp {
+    max-width: 100vw;
+}
+
 .main-img {
     max-width: 90%;
     max-height: 100%;
 }
+
+
 
 .seller {
     display: flex;
@@ -85,14 +91,13 @@ textarea {
 }
 
 
-.guests-holder {
-    width: 85%;
+.guestsHolder {
+    max-width: 100%;
 }
 #guests {
     width: 100%;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     border-radius: 25px;
-    margin: auto;
 }
 
 .imgHolder {
@@ -109,7 +114,7 @@ textarea {
 }
 
 .info {
-    width: 33%
+    width: 33%;
 }
 
 .imgs {

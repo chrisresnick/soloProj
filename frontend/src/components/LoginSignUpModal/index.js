@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch }from "react-redux"
+import { useDispatch, useSelector }from "react-redux"
 import * as requireActions from "../../store/require";
 import LoginFormPage from "../LoginFormPage";
 import SignupForm from "../SignupForm";
@@ -15,7 +15,10 @@ const LoginSignUpModal = () => {
     }
     let tagTodisplay = login ? (<LoginFormPage toggleLogin={toggleLogin}/>) : (<SignupForm toggleLogin={toggleLogin} />);
     useEffect(() => tagTodisplay = login ? (<LoginFormPage toggleLogin={toggleLogin}/>) : (<SignupForm toggleLogin={toggleLogin} />), [login])
-
+    const sessionUser = useSelector(state => state.session.user);
+    if(sessionUser) {
+        dispatch(requireActions.setRequireLogin(false))
+    }
 
     return ReactDom.createPortal(
         (<div id="modal">

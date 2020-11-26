@@ -38,7 +38,7 @@ const SignupFrom = ({toggleLogin}) => {
                 {errors.map((err, idx) => <li key={idx}>{err}</li>)}
             </ul>
             <form onSubmit={handleSubmit}>
-            <input value={username} onChange={e => setUsername(e.target.value)} placeholder="username" type="text" required/>
+                <input value={username} onChange={e => setUsername(e.target.value)} placeholder="username" type="text" required/>
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" type="text" required/>
                 <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password"  type="password" required/>
                 <input value={cPassword} onChange={e => setCPassword(e.target.value)} placeholder="confirm password"  type="password" required/>
