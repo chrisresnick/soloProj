@@ -29,7 +29,7 @@ const Listing = () => {
         (
         <div className="formBtn-holder">
             <button
-                onClick={e => setHideReviewFrom(false)}>
+                onClick={e => user ? setHideReviewFrom(false) : dispatch(requireActions.setRequireLogin(true))}>
                     Leave a Review
             </button>
         </div>) :

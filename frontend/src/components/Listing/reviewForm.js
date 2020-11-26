@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {fetch} from "../../store/csrf";
 import StarSetter from "../Utils/starSetter";
+import * as requireActions from "../../store/require";
 
 const ReviewForm = ({sellerId, setShow, setNewReview}) => {
     const [review, setReview] = useState("");
@@ -10,9 +11,6 @@ const ReviewForm = ({sellerId, setShow, setNewReview}) => {
     const user = useSelector(state => state.session.user);
     const history = useHistory();
 
-    if(!user){
-        history.push("/login");
-    }
 
     const submit = async (e) => {
         const res = await fetch("/api/reviews", {
