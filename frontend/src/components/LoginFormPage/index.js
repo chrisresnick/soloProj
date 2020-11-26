@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import * as sessionActions from "../../store/session";
+import * as requireActions from "../../store/require";
 import {useDispatch, useSelector} from "react-redux";
 import {Redirect} from "react-router-dom";
 import "./loginForm.css";
 
 
-const LoginFormPage = () => {
+const LoginFormPage = ({toggleLogin}) => {
 
     const sessionUser = useSelector(state => state.session.user);
     const [email, setEmail] = useState("");
@@ -13,9 +14,9 @@ const LoginFormPage = () => {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
-    if(sessionUser) return (
-        <Redirect to="/" />
-    );
+    if(sessionUser) {
+        dispatch(requireActions.setRequireLogin(false))
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -37,6 +38,7 @@ const LoginFormPage = () => {
                 <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" type="text" required/>
                 <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password" type="password" required/>
                 <input type="submit" value="Log In"/>
+                <button onClick={toggleLogin}>register</button>
             </form>
         </>
     );

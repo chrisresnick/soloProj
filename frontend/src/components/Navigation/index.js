@@ -2,6 +2,7 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import * as sessionActions from "../../store/session"
+import * as requireActions from "../../store/require"
 import SearchBar from "./SearchBar";
 import "./nav.css"
 
@@ -23,8 +24,7 @@ const Navigation = ({isLoaded}) => {
         </>
     ) : (
         <>
-          <li><i className="fas fa-sign-in-alt" onClick={() => history.push("/login")}></i></li>
-          <li><i className="fas fa-user-plus" onClick={() => history.push("/signup")}></i></li>
+          <li><i className="fas fa-sign-in-alt" onClick={() => dispatch(requireActions.setRequireLogin(true))}></i></li>
         </>
       );
     return (

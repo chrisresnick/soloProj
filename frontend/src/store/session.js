@@ -1,5 +1,6 @@
 // frontend/src/store/session.js
 import { fetch } from './csrf';
+import * as requireActions from "./require";
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
@@ -26,6 +27,9 @@ export const login = (user) => async (dispatch) => {
       password,
     }),
   });
+  if(response.data && !response.data.errors) {
+    dispatch(requireActions.setRequireLogin(false));
+  }
   dispatch(setUser(response.data.user));
   return response;
 };

@@ -1,21 +1,19 @@
 import React, {useState} from "react";
 import * as sessionActions from "../../store/session";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Redirect} from "react-router-dom";
 import "./signupForm.css";
 
-const SignupFrom = () => {
+const SignupFrom = ({toggleLogin}) => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [cPassword, setCPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
-    if(sessionUser) return (
-        <Redirect to="/" />
-    )
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -45,6 +43,7 @@ const SignupFrom = () => {
                 <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password"  type="password" required/>
                 <input value={cPassword} onChange={e => setCPassword(e.target.value)} placeholder="confirm password"  type="password" required/>
                 <input type="submit"/>
+                <button onClick={toggleLogin}>Log into Existing Account</button>
             </form>
 
         </>
