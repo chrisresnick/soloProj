@@ -31,7 +31,7 @@ const LoginFormPage = () => {
             </ul>
             <input value={email} onChange={e => setEmail(e.target.value)} placeholder="username" type="text" required/>
             <input value={password} onChange={e => setPassword(e.target.value)} placeholder="password" type="password" required/>
-            <button className={handleSubmit}>Log In</button>
+            <button onClick={handleSubmit}>Log In</button>
         </div>
     );
 }
