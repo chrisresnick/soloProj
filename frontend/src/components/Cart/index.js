@@ -8,15 +8,19 @@ import "./cart.css"
 
 const Cart = () => {
     const [cart, setCart] = useState([])
-    const {id} = useSelector(state => state.session.user);
+    const user = useSelector(state => state.session.user);
     const [cartIsRefreshed, setCartIsRefreshed] = useState(false);
     const history = useHistory();
     const total = cart.reduce((acc, item) => acc+item.Listing.priceCents*item.participants, 0);
 
+    if(!user){
+        history.push("/");
+    }
+
     const checkOut = async (e) => {
         const res = await fetch("/api/cart/checkout", {
             method: "POST",
-            body: JSON.stringify({id})
+            body: JSON.stringify({id:user.id})
         })
         if(res.data.success) {
             setCart([]);
@@ -27,13 +31,13 @@ const Cart = () => {
     useEffect(() => {
         if(cartIsRefreshed) return;
         (async () => {
-            const res = await fetch(`/api/cart/${id}`);
+            const res = await fetch(`/api/cart/${user.id}`);
             console.log(res);
             setCart(res.data);
         })()
         setCartIsRefreshed(true);
         // return () => setCartIsRefreshed(false);
-    }, [cartIsRefreshed, id])
+    }, [cartIsRefreshed, user])
 
     const delFromCart = async (listing) => {
         const res = await fetch(`/api/cart/${listing}`, {
