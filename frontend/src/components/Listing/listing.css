@@ -144,5 +144,8 @@ textarea {
     .info {
         width: 100%;
     }
+    .review-holder {
+        display: none;
+    }
 
 }
