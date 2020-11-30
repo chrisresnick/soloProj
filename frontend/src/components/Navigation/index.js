@@ -14,6 +14,9 @@ const Navigation = ({isLoaded}) => {
     const logout = e => {
         dispatch(sessionActions.logout());
     }
+    const create = e => {
+        history.push("/listing-form");
+    }
     const links = user ? (
         <>
         <li><i className="fas fa-sign-out-alt" onClick={logout}></i></li>
@@ -21,6 +24,7 @@ const Navigation = ({isLoaded}) => {
             <i  className="fas fa-shopping-cart"
                 onClick={() => history.push("/cart")}></i>
         </li>
+        <li><i class="far fa-plus-square" onClick={create}></i></li>
         </>
     ) : (
         <>
