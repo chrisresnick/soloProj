@@ -28,8 +28,8 @@ const Map = ({coords}) => {
 
     const center = { lat: 39.8283, lng: -98.5795 }
     const containerStyle = {
-        width: '75vw',
-        height: '75vh'
+        width: '100%',
+        height: '91vh'
     };
 
     return (
