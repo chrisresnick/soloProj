@@ -18,7 +18,22 @@ module.exports = {
         longitude: -120.6579,
         createdAt: new Date(),
         updatedAt: new Date()
-      },], {});
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Seneca Rocks Trip"}})).id,
+        latitude: 38.834722,
+        longitude: -79.366111,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Disappointment Cleaver"}})).id,
+        latitude: 46.852886,
+        longitude: -121.760374,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {});
 
   },
 

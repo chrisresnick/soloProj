@@ -21,6 +21,42 @@ module.exports = {
         photo: "https://upload.wikimedia.org/wikipedia/commons/6/63/Early_Winters_Spires_and_Liberty_Bell.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Seneca Rocks Trip"}})).id,
+        photo: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Seneca_East_Face.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Seneca Rocks Trip"}})).id,
+        photo: "https://upload.wikimedia.org/wikipedia/commons/3/34/Seneca_southwest.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Seneca Rocks Trip"}})).id,
+        photo: "https://upload.wikimedia.org/wikipedia/commons/6/63/Seneca_Rock%2C_from_Seneca_Rocks_State_Park.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Disappointment Cleaver"}})).id,
+        photo: "https://i.ibb.co/dKJVbWx/rainier-climb.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Disappointment Cleaver"}})).id,
+        photo: "https://upload.wikimedia.org/wikipedia/commons/0/01/Mount_Rainier_over_Tacoma.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: (await Listing.findOne({where:{title: "Disappointment Cleaver"}})).id,
+        photo: "https://upload.wikimedia.org/wikipedia/commons/3/38/M_Rainier.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
       ], {});
   },
