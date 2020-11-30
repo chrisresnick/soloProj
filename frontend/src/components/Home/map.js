@@ -6,7 +6,6 @@ import {useHistory, NavLink} from "react-router-dom";
 const Map = ({coords}) => {
 
     const history = useHistory();
-    const [map, setMap] = useState(null);
     const [infoBoxes, setInfoBoxes] = useState({});
     const [selected, setSelected] = useState(null);
 
@@ -15,11 +14,11 @@ const Map = ({coords}) => {
         coords.forEach(coord => {
             iBoxObj[coord.id] = (
             <InfoWindow key={coord.id} position={{lat:coord.latitude, lng:coord.longitude}}>
-                <div classname="infobox-info">
+                <div className="infobox-info">
                     <h2 className="infobox-title">
                         <NavLink to={`/listings/${coord.Listing.id}`}>{coord.Listing.title}</NavLink>
                     </h2>
-                    <img className="infobox-photo" src={coord.Listing.photo} />
+                    <img className="infobox-photo" src={coord.Listing.photo} alt={coord.Listing.title}/>
                 </div>
             </InfoWindow>)
         })
@@ -38,8 +37,7 @@ const Map = ({coords}) => {
                 mapContainerStyle={containerStyle}
                 center={center}
                 zoom={4}
-                mapTypeId="satellite"
-                onLoad={m => setMap(m)}>
+                mapTypeId="satellite">
                 <>
                 {selected}
                 {coords.map(coord => (

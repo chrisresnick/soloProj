@@ -16,9 +16,9 @@ const Search = () => {
                 method: "POST",
                 body: JSON.stringify({searchTerm})
             })
-            console.log(res)
+            //console.log(res)
             setResults(res.data);
-            console.log(results);
+            //console.log(results);
             setLoading(false);
         })()
     }, [searchTerm])

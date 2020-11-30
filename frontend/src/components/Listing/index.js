@@ -38,7 +38,7 @@ const Listing = () => {
     useEffect(()=> {
         (async () => {
             const res = await fetch(`/api/listings/${params.id}`)
-            console.log(res);
+            //console.log(res);
             setListing(res.data);
             setLoading(false);
             setImgs([res.data.photo, ...res.data.ExtraPhotos]);
@@ -51,7 +51,7 @@ const Listing = () => {
         if(newSelected < 0) newSelected = imgs.length-1;
         if(newSelected >= imgs.length) newSelected  = 0;
         setSelectedImg(newSelected);
-        console.log(selectedImg);
+        //console.log(selectedImg);
     }
 
     const addToCart = async (e) => {

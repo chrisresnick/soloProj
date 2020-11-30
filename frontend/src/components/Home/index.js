@@ -12,7 +12,7 @@ const Home = () => {
         (async () => {
             const {data} = await fetch("api/coords/");
             setListings(data);
-            console.log(data);
+            //console.log(data);
         })()
     }, []);
 

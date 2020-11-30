@@ -43,7 +43,7 @@ router.post("/", asyncHandelr(async (req, res) => {
         });
     }
     const releventListings = Object.keys(results);
-    console.log(results[releventListings[0]]);
+    //console.log(results[releventListings[0]]);
     if(releventListings.length === 0) return res.json([]);
     releventListings.sort((a, b) => {
         const aVal = results[a].count;

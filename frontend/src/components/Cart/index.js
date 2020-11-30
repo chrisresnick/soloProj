@@ -32,7 +32,7 @@ const Cart = () => {
         if(cartIsRefreshed) return;
         (async () => {
             const res = await fetch(`/api/cart/${user.id}`);
-            console.log(res);
+            //console.log(res);
             setCart(res.data);
         })()
         setCartIsRefreshed(true);
@@ -64,7 +64,7 @@ const Cart = () => {
                     <p>Total ${(total/100).toFixed(2)}</p>
                 </div>
                 <div className="chButton">
-                    <i class="fas fa-cash-register" onClick={checkOut}></i>
+                    <i className="fas fa-cash-register" onClick={checkOut}></i>
                 </div>
             </div>
         </div>
