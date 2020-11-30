@@ -8,7 +8,7 @@ export const setRequireLogin = (bool) => {
     }
 }
 
-export const requireCreate = (bool) => {
+export const setRequireCreate = (bool) => {
     return {
         type: REQUIRE_CREATE,
         payload: bool
