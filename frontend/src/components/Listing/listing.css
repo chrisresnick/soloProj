@@ -133,3 +133,16 @@ textarea {
     justify-content: space-between;
     margin: 5px;
 }
+
+@media (max-width: 650px) {
+    .disp {
+        flex-direction: column;
+    }
+    .left-col {
+        width: 100%;
+    }
+    .info {
+        width: 100%;
+    }
+
+}

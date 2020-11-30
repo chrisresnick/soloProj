@@ -106,7 +106,7 @@ const Listing = () => {
                     <Calendar onChange={setDate} value={date}/>
                     <div className="guestsHolder">
                         <label htmlFor="guests">Number of Participants</label>
-                        <input id="guests" type="number" value={participants} onChange={e => setParticipants(e.target.value)} />
+                        <input id="guests" min={1} type="number" value={participants} onChange={e => setParticipants(e.target.value)} />
                     </div>
                     <button className="add-to-cart" onClick={addToCart}>Add Trip to Cart</button>
                 </div>

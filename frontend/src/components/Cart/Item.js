@@ -42,7 +42,7 @@ const Item = ({ITEM, delFromCart, cart, setCart}) => {
                 <p>Sold by {seller.username}</p>
                 <div className="booking">
                     <label htmlFor="guests">Number of Guests:</label>
-                    <input id="num-guests" type="number" value={participants} onChange={e => setParticipants(e.target.value)}/>
+                    <input id="num-guests" type="number" min={1} value={participants} onChange={e => setParticipants(e.target.value)}/>
                     <label htmlFor="date">On:</label>
                     <input id="date" type="date" value={dateStr} onChange={e => setDate(new Date(e.target.value))}/>
                 </div>

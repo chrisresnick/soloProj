@@ -18,16 +18,16 @@ const Search = () => {
             })
             console.log(res)
             setResults(res.data);
+            console.log(results);
             setLoading(false);
         })()
     }, [searchTerm])
     let loadingDisp = loading ? (<h1>Loading...</h1>) : null;
-    let found = results.length === 0 ? (<h1>No results found</h1>) : null;
     return (
         <div className="searchResult-holder">
             {loadingDisp}
-            {loading && found}
             {results.map(result => <Result key={`${result.id}-${searchTerm}`} listing={result}/>)}
+            <h1>{results.length === 0 ? "No results found." : null}</h1>
         </div>
     )
 }

@@ -38,8 +38,8 @@ router.post("/", asyncHandelr(async (req, res) => {
             if(!(listing.id in results)){
                 results[listing.id] = {count:0, listing: listing.toJSON()};
             }
-            results[listing.id].count += countOccur(listing.description, term.substring(1, term.length - 1));
-            results[listing.id].count += 3*countOccur(listing.title, term.substring(1, term.length - 1));
+            results[listing.id].count += countOccur(listing.description.toLowerCase(), term.substring(1, term.length - 1).toLowerCase());
+            results[listing.id].count += countOccur(listing.title.toLowerCase(), term.substring(1, term.length - 1).toLowerCase());
         });
     }
     const releventListings = Object.keys(results);
