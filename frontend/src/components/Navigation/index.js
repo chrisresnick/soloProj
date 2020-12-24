@@ -16,7 +16,13 @@ const Navigation = ({isLoaded}) => {
     }
     const links = user ? (
         <>
-        <li><i className="fas fa-sign-out-alt" onClick={logout}></i></li>
+        <li>
+            <i className="fas fa-sign-out-alt" onClick={logout}></i>
+        </li>
+        <li>
+            <i class="far fa-plus-square"
+            onClick={e => history.push("/newListing")}></i>
+        </li>
         <li>
             <i  className="fas fa-shopping-cart"
                 onClick={() => history.push("/cart")}></i>

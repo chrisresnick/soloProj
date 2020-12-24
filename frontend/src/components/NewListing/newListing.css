@@ -1,0 +1,53 @@
+.new-listing-holder {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.new-listing-form {
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coords {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-listing-photos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.coords input {
+    width: 45%;
+    border-radius: 25px;
+}
+
+.new-listing-form * {
+    margin-top: 3px;
+}
+
+.new-listing-form > input {
+    border-radius: 25px;
+    width: 100%;
+}
+
+.new-listing-form textarea {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.submit-button {
+    width: 85%;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    margin: 5px 0px 5px 0px;
+    border-radius: 25px;
+}

@@ -8,6 +8,7 @@ import Cart from "./components/Cart/index";
 import Home from "./components/Home/index";
 import Search from "./components/Search/index";
 import LoginSignUpModal from "./components/LoginSignUpModal";
+import NewListing from "./components/NewListing/index";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
       <Switch>
+        <Route path="/newListing" component={NewListing}/>
         <Route path="/cart" component={Cart} />
         <Route path="/listings/:id" component={Listing} />
         <Route path="/search" component={Search} />
