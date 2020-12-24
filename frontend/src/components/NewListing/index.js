@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import AddPhoto from "./addPhoto"
 import "./newListing.css"
 
 const NewListing = () => {
@@ -21,6 +22,7 @@ const NewListing = () => {
                 </fieldset>
                 <fieldset className="new-listing-photos">
                     <legend>Photos:</legend>
+                    <AddPhoto/>
                 </fieldset>
                 <button className="submit-button">Add New Listing</button>
 
