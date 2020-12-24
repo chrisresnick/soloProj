@@ -11,6 +11,7 @@ s3.config.update({
     region: awsConfig.region
 });
 
+
 const router = express.Router();
 
 router.post("/upload", asyncHadler(async (req, res) => {

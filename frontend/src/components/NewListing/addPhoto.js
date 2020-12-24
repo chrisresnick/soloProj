@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {fetch as csrfFetch} from "../../store/csrf";
+import axios from "axios";
 
 const AddPhoto = () => {
     const [file, setFile] = useState(null)
@@ -15,12 +16,11 @@ const AddPhoto = () => {
             method: "POST",
         })
         if(res1.data.postUrl) {
-            const res2 = await window.fetch(res1.data.postUrl,
+            window.fetch(res1.data.postUrl,
                 {
                     method: "PUT",
                     headers : {
                         "Content-Type": "image/jpeg",
-                        "ACL": "public-read",
                     },
                     body: file,
                 })
