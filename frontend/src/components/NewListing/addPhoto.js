@@ -10,15 +10,23 @@ const AddPhoto = () => {
     }
 
     const uploadPhoto = async (e) => {
-        e.preventDefualt();
-        const res1 = await csrfFetch("/api/getPermision",{
-            method: "POST"
+        e.preventDefault();
+        const res1 = await csrfFetch("/api/permisions/upload",{
+            method: "POST",
         })
-        if(res1.data.url) {
-            console.log(res1.data.url)
+        if(res1.data.postUrl) {
+            const res2 = await window.fetch(res1.data.postUrl,
+                {
+                    method: "PUT",
+                    headers : {
+                        "Content-Type": "image/jpeg",
+                        "ACL": "public-read",
+                    },
+                    body: file,
+                })
         }
         else {
-            console.log(res1)
+            console.log("Error fetching AWS signed URL")
         }
 
     }
