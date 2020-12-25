@@ -18,6 +18,9 @@
     justify-content: space-between;
 }
 
+.latLng {
+    width: 100%;
+}
 .new-listing-photos {
     width: 100%;
     display: flex;
