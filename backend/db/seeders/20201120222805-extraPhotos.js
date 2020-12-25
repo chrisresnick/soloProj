@@ -12,7 +12,7 @@ module.exports = {
       },
       {
         listingId: (await Listing.findOne({where:{title: "Liberty Bell Mountain"}})).id,
-        photo: "https://i.ibb.co/hH1wynL/liberty-bell-climb.jpg",
+        photo: "https://climbzy.s3.amazonaws.com/ccb80409-2b18-4a17-9b33-b3edef34c37d",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -42,7 +42,7 @@ module.exports = {
       },
       {
         listingId: (await Listing.findOne({where:{title: "Disappointment Cleaver"}})).id,
-        photo: "https://i.ibb.co/dKJVbWx/rainier-climb.jpg",
+        photo: "https://climbzy.s3.amazonaws.com/f62ad5cd-6b1e-42dc-ae6f-ef12fa66bac0",
         createdAt: new Date(),
         updatedAt: new Date()
       },
