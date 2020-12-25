@@ -14,13 +14,13 @@ const NewListing = () => {
     const [lat, setLat] = useState(null)
     const [long, setLong] = useState(null)
     const [photos, setPhotos] = useState([]);
+    const [center, setCenter] = useState({ lat: 39.8283, lng: -98.5795 })
     const user = useSelector(state => state.session.user);
     const history = useHistory();
 
-    const center = { lat: 39.8283, lng: -98.5795 }
     const containerStyle = {
         width: '100%',
-        height: '50vh'
+        height: '60vh'
     };
 
     const addToPhotos = (url) => {
@@ -62,7 +62,7 @@ const NewListing = () => {
                                 mapContainerStyle={containerStyle}
                                 center={center}
                                 zoom={4}
-                                onClick={e => {setLat(e.latLng.lat()); setLong(e.latLng.lng())}}
+                                onClick={e => {setLat(e.latLng.lat()); setLong(e.latLng.lng()); setCenter({lat, lng:long})}}
                                 mapTypeId="satellite">
                                     {lat && long && <Marker position={{lat, lng:long}}/>}
                             </GoogleMap>
