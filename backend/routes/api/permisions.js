@@ -15,19 +15,22 @@ s3.config.update({
 const router = express.Router();
 
 router.post("/upload", asyncHadler(async (req, res) => {
-    const key = uuid.v4()
+    const filetype = req.body.filetype;
+    if (!(["image/jpeg", "image/png", "image/gif"].includes(filetype))){
+        return res.json({error: "Filetype must be jpeg, gif or png"});
+    }
     const params = {
         Bucket: "climbzy",
-        Key: key,
+        Key: uuid.v4(),
         Expires: 60,
-        ContentType: 'image/jpeg',
+        ContentType: filetype,
         ACL: "public-read",
-    }
+    };
     const url = await s3.getSignedUrlPromise("putObject", params);
     return res.json({
         postUrl: url,
         getUrl: url.split("?")[0]
-    })
+    });
 }));
 
 

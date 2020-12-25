@@ -4,6 +4,7 @@ import axios from "axios";
 
 const AddPhoto = () => {
     const [file, setFile] = useState(null)
+    const [errors, setErrors] = useState([])
 
     const fileChange = (e) => {
         console.log(e.target.files);
@@ -14,19 +15,21 @@ const AddPhoto = () => {
         e.preventDefault();
         const res1 = await csrfFetch("/api/permisions/upload",{
             method: "POST",
+            body: JSON.stringify({filetype: file.type})
         })
         if(res1.data.postUrl) {
+            setErrors([]);
             window.fetch(res1.data.postUrl,
                 {
                     method: "PUT",
                     headers : {
-                        "Content-Type": "image/jpeg",
+                        "Content-Type": file.type,
                     },
                     body: file,
                 })
         }
-        else {
-            console.log("Error fetching AWS signed URL")
+        else if (res1.data.error) {
+            setErrors([res1.data.error]);
         }
 
     }
@@ -34,8 +37,11 @@ const AddPhoto = () => {
 
     return (
         <div className="photo-uploader">
-            <input type="file" onChange={fileChange}/>
-            <button onClick={uploadPhoto}>Unload file</button>
+            {errors.map(error => <h4 key={error} className="photo-error">{`Error: ${error}`}</h4>)}
+            <div className="photo-buttons">
+                <input type="file" onChange={fileChange}/>
+                <button onClick={uploadPhoto}>Unload file</button>
+            </div>
         </div>
 
     )

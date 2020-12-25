@@ -24,6 +24,10 @@
     flex-direction: column;
 }
 
+.photo-error{
+    color: red;
+}
+
 .coords input {
     width: 45%;
     border-radius: 25px;
@@ -52,8 +56,7 @@
     border-radius: 25px;
 }
 
-.photo-uploader {
+.photo-buttons {
     display: flex;
     justify-content: space-between;
-
 }
