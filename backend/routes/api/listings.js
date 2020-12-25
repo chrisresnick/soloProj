@@ -10,7 +10,6 @@ const avrgRating = (ratings) => {
 }
 
 router.put("/", asyncHadler(async (req, res) => {
-    console.log("body", req.body);
     const seller = req.body.user;
     const title = req.body.listingName;
     const description = req.body.listingDescription;
