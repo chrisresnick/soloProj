@@ -15,6 +15,10 @@ const NewListing = () => {
         setPhotos([...photos, url])
     }
 
+    const deletePhoto = (url) => {
+        setPhotos(photos.filter(photo => photo != url));
+    }
+
     return (
         <div className="new-listing-holder">
             <h1>Create New Listing</h1>
@@ -30,7 +34,7 @@ const NewListing = () => {
                 <fieldset className="new-listing-photos">
                     <legend>Photos:</legend>
                     <div className="new-photos">
-                        {photos.map(photo => <PhotoDisplay key={photo} photo={photo}/>)}
+                        {photos.map(photo => <PhotoDisplay key={photo} photo={photo} deletePhoto={deletePhoto}/>)}
                     </div>
                     <AddPhoto addToPhotos={addToPhotos}/>
                 </fieldset>

@@ -1,10 +1,10 @@
 import React from "react"
 
-const PhotoDisplay = ({photo}) => {
+const PhotoDisplay = ({photo, deletePhoto}) => {
     return (
         <div className="one-new-photo">
-            <img src={photo}/>
-            <button>Delete Photo</button>
+            <img alt="User Uploaded Photo" src={photo}/>
+            <button onClick={e => {e.preventDefault(); deletePhoto(photo);}}>Delete Photo</button>
         </div>
     )
 }

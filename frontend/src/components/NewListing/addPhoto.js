@@ -42,7 +42,7 @@ const AddPhoto = ({addToPhotos}) => {
             {errors.map(error => <h4 key={error} className="photo-error">{`Error: ${error}`}</h4>)}
             <div className="photo-buttons">
                 <input type="file" files={[file]} onChange={e => setFile(e.target.files[0])}/>
-                <button onClick={uploadPhoto}>Unload file</button>
+                <button onClick={uploadPhoto}>Upload file</button>
             </div>
         </div>
 
