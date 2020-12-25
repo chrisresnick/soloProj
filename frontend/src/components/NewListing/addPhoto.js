@@ -1,18 +1,16 @@
 import React, {useState} from "react";
 import {fetch as csrfFetch} from "../../store/csrf";
-import axios from "axios";
 
-const AddPhoto = () => {
+const AddPhoto = ({addToPhotos}) => {
     const [file, setFile] = useState(null)
     const [errors, setErrors] = useState([])
 
-    const fileChange = (e) => {
-        console.log(e.target.files);
-        setFile(e.target.files[0]);
-    }
-
     const uploadPhoto = async (e) => {
         e.preventDefault();
+        if(file == null){
+            setErrors(["Choose a file"]);
+            return;
+        }
         const res1 = await csrfFetch("/api/permisions/upload",{
             method: "POST",
             body: JSON.stringify({filetype: file.type})
@@ -26,7 +24,11 @@ const AddPhoto = () => {
                         "Content-Type": file.type,
                     },
                     body: file,
-                })
+                }
+            ).then(d => {
+                setFile(null);
+                addToPhotos(res1.data.getUrl);
+            })
         }
         else if (res1.data.error) {
             setErrors([res1.data.error]);
@@ -39,7 +41,7 @@ const AddPhoto = () => {
         <div className="photo-uploader">
             {errors.map(error => <h4 key={error} className="photo-error">{`Error: ${error}`}</h4>)}
             <div className="photo-buttons">
-                <input type="file" onChange={fileChange}/>
+                <input type="file" files={[file]} onChange={e => setFile(e.target.files[0])}/>
                 <button onClick={uploadPhoto}>Unload file</button>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import AddPhoto from "./addPhoto"
+import AddPhoto from "./addPhoto";
+import PhotoDisplay from "./photoDisplay";
 import "./newListing.css"
 
 const NewListing = () => {
@@ -8,6 +9,12 @@ const NewListing = () => {
     const [price, setPrice] = useState("");
     const [lat, setLat] = useState("")
     const [long, setLong] = useState("")
+    const [photos, setPhotos] = useState([]);
+
+    const addToPhotos = (url) => {
+        setPhotos([...photos, url])
+    }
+
     return (
         <div className="new-listing-holder">
             <h1>Create New Listing</h1>
@@ -22,7 +29,10 @@ const NewListing = () => {
                 </fieldset>
                 <fieldset className="new-listing-photos">
                     <legend>Photos:</legend>
-                    <AddPhoto/>
+                    <div className="new-photos">
+                        {photos.map(photo => <PhotoDisplay key={photo} photo={photo}/>)}
+                    </div>
+                    <AddPhoto addToPhotos={addToPhotos}/>
                 </fieldset>
                 <button className="submit-button">Add New Listing</button>
 

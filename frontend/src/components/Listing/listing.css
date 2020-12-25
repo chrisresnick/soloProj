@@ -11,6 +11,10 @@ i {
     max-height: 100%;
 }
 
+.new-photos{
+    display: flex;
+}
+
 
 
 .seller {
