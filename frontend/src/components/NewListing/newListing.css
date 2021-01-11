@@ -93,3 +93,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+.new-listing-photos button {
+    background-color: blue;
+    color: white;
+    font-size: large;
+    border-radius: 25px;
+}

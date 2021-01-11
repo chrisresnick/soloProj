@@ -89,7 +89,7 @@ const NewListing = () => {
                     </div>
                     <AddPhoto addToPhotos={addToPhotos}/>
                 </fieldset>
-                <button lassName="submit-button">Add New Listing</button>
+                <button className="submit-button">Add New Listing</button>
             </form>
         </div>
     )
