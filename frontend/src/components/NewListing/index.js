@@ -42,7 +42,7 @@ const NewListing = () => {
         })
         if(res.data.errors){
             setErrors(res.data.errors);
-            console.log(errors);
+            //console.log(errors);
         } else {
             setErrors([]);
         }
