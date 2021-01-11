@@ -19,6 +19,10 @@ const NewListing = () => {
     const user = useSelector(state => state.session.user);
     const history = useHistory();
 
+    if(!user){
+        history.push("/");
+    }
+
     const containerStyle = {
         width: '100%',
         height: '60vh'
