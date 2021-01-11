@@ -11,8 +11,8 @@ const NewListing = () => {
     const [listingName, setListingName] = useState("");
     const [listingDescription, setListingDescription] = useState("");
     const [price, setPrice] = useState("");
-    const [lat, setLat] = useState(null)
-    const [long, setLong] = useState(null)
+    const [lat, setLat] = useState()
+    const [long, setLong] = useState()
     const [photos, setPhotos] = useState([]);
     const [center, setCenter] = useState({ lat: 39.8283, lng: -98.5795 })
     const [errors, setErrors] = useState([]);
@@ -57,7 +57,7 @@ const NewListing = () => {
             <h1>Create New Listing</h1>
             {errors.length ? (
                 <div className="submit-errors-holder">
-                    {errors.map(err => <p className="error">{err}</p>)}
+                    {errors.map(err => <p key={err} className="error">{err}</p>)}
                 </div>
             ) : null}
 

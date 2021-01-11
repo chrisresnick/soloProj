@@ -20,7 +20,7 @@ const Navigation = ({isLoaded}) => {
             <i className="fas fa-sign-out-alt" onClick={logout}></i>
         </li>
         <li>
-            <i class="far fa-plus-square"
+            <i className="far fa-plus-square"
             onClick={e => history.push("/newListing")}></i>
         </li>
         <li>
