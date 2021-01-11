@@ -5,6 +5,10 @@
     flex-direction: column;
     align-items: center;
 }
+
+.error {
+    color: red;
+}
 .new-listing-form {
     width: 66%;
     display: flex;

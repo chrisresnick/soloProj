@@ -15,6 +15,7 @@ const NewListing = () => {
     const [long, setLong] = useState(null)
     const [photos, setPhotos] = useState([]);
     const [center, setCenter] = useState({ lat: 39.8283, lng: -98.5795 })
+    const [errors, setErrors] = useState([]);
     const user = useSelector(state => state.session.user);
     const history = useHistory();
 
@@ -39,6 +40,12 @@ const NewListing = () => {
                 listingName, listingDescription, price: price*100, lat, long, photos, user: user.id,
             })
         })
+        if(res.data.errors){
+            setErrors(res.data.errors);
+            console.log(errors);
+        } else {
+            setErrors([]);
+        }
         if(res.data.id){
             history.push(`/listings/${res.data.id}`);
         }
@@ -48,6 +55,12 @@ const NewListing = () => {
     return (
         <div className="new-listing-holder">
             <h1>Create New Listing</h1>
+            {errors.length ? (
+                <div className="submit-errors-holder">
+                    {errors.map(err => <p className="error">{err}</p>)}
+                </div>
+            ) : null}
+
             <form className="new-listing-form" onSubmit={submit}>
                 <input required="required" placeholder="Listing Name" value={listingName} onChange={e=>setListingName(e.target.value)}></input>
                 <input required="required" placeholder="Price" type="number" value={price} onChange={e=>setPrice(e.target.value)}></input>
@@ -77,7 +90,6 @@ const NewListing = () => {
                     <AddPhoto addToPhotos={addToPhotos}/>
                 </fieldset>
                 <button lassName="submit-button">Add New Listing</button>
-
             </form>
         </div>
     )
