@@ -28,7 +28,7 @@ const NewListing = () => {
     }
 
     const deletePhoto = (url) => {
-        setPhotos(photos.filter(photo => photo != url));
+        setPhotos(photos.filter(photo => photo !== url));
     }
 
     const submit = async (e) => {
@@ -48,15 +48,15 @@ const NewListing = () => {
     return (
         <div className="new-listing-holder">
             <h1>Create New Listing</h1>
-            <form className="new-listing-form">
-                <input placeholder="Listing Name" value={listingName} onChange={e=>setListingName(e.target.value)}></input>
-                <input placeholder="Price" type="number" value={price} onChange={e=>setPrice(e.target.value)}></input>
-                <textarea placeholder="Description" value={listingDescription} onChange={e=>setListingDescription(e.target.value)}></textarea>
+            <form className="new-listing-form" onSubmit={submit}>
+                <input required="required" placeholder="Listing Name" value={listingName} onChange={e=>setListingName(e.target.value)}></input>
+                <input required="required" placeholder="Price" type="number" value={price} onChange={e=>setPrice(e.target.value)}></input>
+                <textarea required placeholder="Description" value={listingDescription} onChange={e=>setListingDescription(e.target.value)}></textarea>
                 <fieldset className="coords">
                     <legend>Coordinates:</legend>
                     <div className="latLng">
-                        <input placeholder="Latitude" disabled="disabled" value={lat} onChange={e=>setLat(e.target.value)}></input>
-                        <input placeholder="Longitude" disabled="disabled" value={long} onChange={e=>setLong(e.target.value)}></input>
+                        <input placeholder="Latitude" required="required" disabled="disabled" value={lat} onChange={e=>setLat(e.target.value)}></input>
+                        <input placeholder="Longitude" required="required" disabled="disabled" value={long} onChange={e=>setLong(e.target.value)}></input>
                         <LoadScript googleMapsApiKey={"AIzaSyB7RL1VTdvSotBJ1RO6ZpHzQkb1jcnjTxA"}>
                             <GoogleMap
                                 mapContainerStyle={containerStyle}
@@ -76,7 +76,7 @@ const NewListing = () => {
                     </div>
                     <AddPhoto addToPhotos={addToPhotos}/>
                 </fieldset>
-                <button onClick={submit}className="submit-button">Add New Listing</button>
+                <button lassName="submit-button">Add New Listing</button>
 
             </form>
         </div>
