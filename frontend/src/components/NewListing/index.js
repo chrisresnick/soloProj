@@ -66,14 +66,18 @@ const NewListing = () => {
             ) : null}
 
             <form className="new-listing-form" onSubmit={submit}>
-                <input required="required" placeholder="Listing Name" value={listingName} onChange={e=>setListingName(e.target.value)}></input>
-                <input required="required" placeholder="Price" type="number" value={price} onChange={e=>setPrice(e.target.value)}></input>
+                <div className="two-input-holder">
+                    <input required="required" placeholder="Listing Name" value={listingName} onChange={e=>setListingName(e.target.value)}></input>
+                    <input required="required" placeholder="Price" type="number" value={price} onChange={e=>setPrice(e.target.value)}></input>
+                </div>
                 <textarea required placeholder="Description" value={listingDescription} onChange={e=>setListingDescription(e.target.value)}></textarea>
                 <fieldset className="coords">
                     <legend>Coordinates:</legend>
                     <div className="latLng">
-                        <input placeholder="Latitude" required="required" disabled="disabled" value={lat} onChange={e=>setLat(e.target.value)}></input>
-                        <input placeholder="Longitude" required="required" disabled="disabled" value={long} onChange={e=>setLong(e.target.value)}></input>
+                        <div className="two-input-holder">
+                            <input placeholder="Latitude. Click the map to input" required="required" disabled="disabled" value={lat} onChange={e=>setLat(e.target.value)}></input>
+                            <input placeholder="Longitude. Click the map to input" required="required" disabled="disabled" value={long} onChange={e=>setLong(e.target.value)}></input>
+                        </div>
                         <LoadScript googleMapsApiKey={"AIzaSyB7RL1VTdvSotBJ1RO6ZpHzQkb1jcnjTxA"}>
                             <GoogleMap
                                 mapContainerStyle={containerStyle}

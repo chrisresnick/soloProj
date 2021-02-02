@@ -61,7 +61,7 @@
     max-height: 80%;
 }
 
-.coords input {
+.two-input-holder input {
     width: 45%;
     border-radius: 25px;
 }
@@ -77,6 +77,14 @@
 
 .new-listing-form textarea {
     border-radius: 15px;
+    width: 100%;
+    resize: none;
+    padding-left: .5vw;
+}
+
+.two-input-holder {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
