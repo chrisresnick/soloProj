@@ -12,6 +12,14 @@
     width: 100%;
 }
 
+.infobox-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 .infobox-photo {
     max-height: 100px;
+    width: auto;
 }
