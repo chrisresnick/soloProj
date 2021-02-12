@@ -1,7 +1,7 @@
 # Climbzy
   
 ## Concept
-Climbzy is a site for climbing guides to list their trips. The UI and layout are inspired by Etsy. This project integrates the google maps API for displaying listing and AWS S3 for storing photos. 
+Climbzy is a site for climbing guides to list their trips. The UI and layout are inspired by Etsy. This project integrates the Google Maps API for displaying listing and AWS S3 for storing photos. 
   
 ## MVPs
 - Search Bar
