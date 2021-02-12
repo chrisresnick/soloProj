@@ -28,10 +28,10 @@ Climbzy is a site for climbing guides to list their trips. The UI and layout are
   - Photo - Text (url)
   - priceCents: Int
     
--ExtraImgs:
- - ID
- - Listing - Integer, Foreign Key -> Listings
- - Photo - Text (url)
+- ExtraImgs:
+  - ID
+  - Listing - Integer, Foreign Key -> Listings
+  - Photo - Text (url)
   
 - Reviews
   - ID
