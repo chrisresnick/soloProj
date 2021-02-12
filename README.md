@@ -1,73 +1,86 @@
-# soloProj
+# Climbzt
   
-  # Concept
-  Etsy clone but for climbing guides/outdoor trips.
+## Concept
+Climbzy is a site for climbing guides to list their trips. The UI and layout are inspired by Etsy. This project integrates the google maps API for displaying listing and AWS S3 for storing photos. 
   
-  # MVPS
-  - Search Bar
-  - Shopping Cart
-  - Listings
-  - Reviews
+## MVPs
+- Search Bar
+- Shopping Cart
+- Listings
+- Create New Listings
+- Reviews
+- Google Maps javascript API intigration
+- AWS S3 inigration
+  - Generate signed upload URLs for fast, and secure uploading
   
-  # Possible Extras
-  - Map API
-    - Show Listings on a Map
-  - Ability request permision to list trips
+## Data Base schema
+- Users
+  - ID
+  - UserName - String
+  - Email - String
+  - HashedPassword - String
+    
+- Listings
+  - ID
+  - Seller - Int, foreign key -> Users
+  - Title - String
+  - Description - Text
+  - Photo - Text (url)
+  - priceCents: Int
+    
+-ExtraImgs:
+ - ID
+ - Listing - Integer, Foreign Key -> Listings
+ - Photo - Text (url)
   
-  # Data Base schema
-  - Users
-    - ID
-    - User Name - String
-    - Email - String
-    - Hashed Password - String
-    - Listing Permision - Boolean
+- Reviews
+  - ID
+  - Rating - Integer
+  - Review - Text
+  - ForUser - Integer, Foreign Key -> Users
+  - FromUser - Integer, Foreign Key -> Users
     
-  - Listings
-    - ID 
-    - Seller - Integer, Foreign Key
-    - Description - text
-    - Photo - text
-    - Price
-    
-  -ExtraImgs:
-    - ID
-    - Listing - Integer, Foreign Key,
-    - Photo URL - text
+- Shopping Cart
+  - ID
+  - User - Integer, Foreign Key -> Users
+  - Item - Integer, Foreign Key -> Listings
+
+- Coordinates
+  - ID
+  - ListingId - Integer, Foreign Key -> Listings
+  - Latitude - Double
+  - Longitude - Double
   
- - Reviews
-    - ID
-    - Rating - Integer
-    - Review - Text
-    - ForUser - Integer, Foreign Key
-    - FromUser - Integer, Foreign Key
-    
- - Shopping Cart
-    - ID
-    - User - Integer, Foreign Key
-    - Item - Integer, Foreign Key
     
     
     
   
-  # Routes 
-  - Front End
-    - /listings/#id
-      - Display a listing
-      - Show calender for booking
-    - /shop/#id
-      - Display a shops page and all of their listings
-    - /
-      - Home Page
-    - /sell
-      - Request Seller permison
-      
-  - Back End
-    - /api/listings/id
-      - Fetch a listing from the database and return JSON
-    - /api/shop/id
-      - Fetch shop text and all listings from database and return JSON
-     - /api/shopingCart/id POST
-        - Add item to user shoping cart
-    - /api/shopingCart/id DELETE
-      - delete an item from shoping cart
+## /api Routes 
+- <b>/cart</b>
+  - POST <b>/</b> - Add a new item to the cart
+  - POST <b>/checkout/</b> - Checkout the current cart
+  - PATCH <b>/:id</b> Update an item in the cart
+  - GET <b>/:id</b> Fetch data on an item in the cart
+  - Delete <b>/:id</b> Delete an item from the cart
+- <b>/coords</b>
+  - GET <b>/</b> Get all the coordinates of all the listings (used to render the map)
+- <b>/listings</b>
+  - PUT <b>/</b> Create a new listing
+  - GET <b>/:id</b> Get data for a given listing
+- <b>/permisions</b>
+  - POST <b>/upload</b> Get a signed URL to upload an image to AWS
+- <b>/reviews</b>
+  - POST <b>/</b> Create a new review
+- <b>/search</b>
+  - POST <b>/</b> Search the database for a keyword
+- <b>/session</b>
+  - POST <b>/</b> Log in
+  - DELETE <b>/</b> Log out
+  - GET <b>/</b> Restore the session for the current user
+- <b>/users</b>
+  - POST <b>/</b> Register a new user
+  
+  
+  
+
   
